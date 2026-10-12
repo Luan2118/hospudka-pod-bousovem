@@ -159,33 +159,7 @@ const pivoPlech = {
   ]
 };
 
-const tocenaLimonada = {
-  id: "tocena-limonada",
-  title: "Točená limonáda",
-  items: [
-    {
-      id: "kofola-tocena",
-      name: "Kofola",
-      price: 40,
-      volume: 0.5,
-      secondaryPrice: 30,
-      secondaryVolume: 0.3
-    }
-  ]
-};
 
-const cider = {
-  id: "cider",
-  title: "Cider",
-  items: [
-    {
-      id: "frisco",
-      name: "Frisco - alkoholický cider",
-      price: 40,
-      volume: 0.33
-    }
-  ]
-};
 
 const pivoNealkoholicke = {
   id: "pivo-nealkoholicke",
@@ -218,53 +192,46 @@ const pivoNealkoholicke = {
   ]
 };
 
-const kava = {
-  id: "kava",
-  title: "Káva",
+const tepleNapoje = {
+  id: "teple-napoje",
+  title: "Teplé nápoje",
   items: [
     {
       id: "kava-turecka",
       name: "Turecká",
-      price: 35
+      price: 35,
     },
     {
       id: "espresso",
       name: "Espresso",
-      price: 35
+      price: 35,
     },
     {
       id: "espresso-lungo",
       name: "Espresso Lungo",
-      price: 45
+      price: 45,
     },
     {
       id: "cappuccino",
       name: "Cappuccino",
-      price: 49
+      price: 49,
     },
     {
       id: "latte-macchiato",
       name: "Latté Macchiato",
-      price: 49
-    }
-  ]
-};
-
-const caj = {
-  id: "caj",
-  title: "Čaj",
-  items: [
+      price: 49,
+    },
     {
       id: "caj-cerny",
-      name: "Černý",
+      name: "Čaj černý",
       price: 29,
-      volume: 0.2
+      volume: 0.2,
     },
     {
       id: "caj-ovocny",
-      name: "Ovocný",
+      name: "Čaj ovocný",
       price: 29,
-      volume: 0.2
+      volume: 0.2,
     }
   ]
 };
@@ -279,7 +246,7 @@ const vinoBile = {
       price: 50,
       volume: 0.2,
       secondaryPrice: 170,
-      secondaryLabel: "láhev"
+      secondaryVolume: "láhev"
     },
     {
       id: "chardonnay",
@@ -287,7 +254,7 @@ const vinoBile = {
       price: 50,
       volume: 0.2,
       secondaryPrice: 170,
-      secondaryLabel: "láhev"
+      secondaryVolume: "láhev"
     },
     {
       id: "miller-thurgau",
@@ -295,7 +262,7 @@ const vinoBile = {
       price: 50,
       volume: 0.2,
       secondaryPrice: 170,
-      secondaryLabel: "láhev"
+      secondaryVolume: "láhev"
     },
     {
       id: "palava",
@@ -303,7 +270,7 @@ const vinoBile = {
       price: 50,
       volume: 0.2,
       secondaryPrice: 170,
-      secondaryLabel: "láhev"
+      secondaryVolume: "láhev"
     },
     {
       id: "tramin-cerveny",
@@ -311,7 +278,7 @@ const vinoBile = {
       price: 50,
       volume: 0.2,
       secondaryPrice: 170,
-      secondaryLabel: "láhev"
+      secondaryVolume: "láhev"
     }
   ]
 };
@@ -346,6 +313,19 @@ const vinoSumive = {
   ]
 };
 
+
+const cider = {
+  id: "cider",
+  title: "Cider",
+  items: [
+    {
+      id: "frisco",
+      name: "Frisco - alkoholický cider",
+      price: 40,
+      volume: 0.33
+    }
+  ]
+};
 const michaneNapoje = {
   id: "michane-napoje",
   title: "Míchané nápoje",
@@ -401,7 +381,7 @@ const nealko = {
     },
     {
       id: "kofola",
-      name: "Kofola",
+      name: "Kofola točená",
       price: 40,
       volume: 0.5,
       secondaryPrice: 30,
@@ -542,14 +522,12 @@ const drinksData = [
   pivoCepovane,
   pivoPlech,
   pivoNealkoholicke,
-  kava,
-  nealko,
-  tocenaLimonada,
   cider,
-  caj,
+  nealko,
+  tepleNapoje,
+  vinoBile,
   vinoCervene,
   vinoSumive,
-  vinoBile,
   michaneNapoje,
   destilaty,
 ];
@@ -583,7 +561,7 @@ function Menu() {
       </header>
 
 
-      <div className="text-[#2B241F] px-5 xs:px-10 md:px-10 lg:px-20 xl:px-30 2xl:px-40">
+      <div className="text-[#2B241F] px-5 xs:px-10 md:px-10 lg:px-20 xl:px-40 2xl:px-60">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-15 ">
 
           {menuData.map((category) => {

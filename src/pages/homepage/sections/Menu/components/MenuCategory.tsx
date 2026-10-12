@@ -1,6 +1,4 @@
-
-
-type MenuItem = {
+export type MenuItem = {
   id: string;
   name: string;
   price: number | null;
@@ -38,17 +36,17 @@ function MenuCategory({ data }: MenuCategoryProps) {
               <div className="flex justify-between w-full text-base">
                 <p className="">{menuItem.name}</p>
                 <hr className="grow self-end mb-[5px] mx-[6px]" />
+
                 {menuItem.secondaryPrice ?
                   <p className="">{menuItem.price} Kč | {menuItem.secondaryPrice} Kč</p>
                   : <p className="">{menuItem.price} Kč</p>}
               </div>
 
               <div className="flex text-[#2B241F]/80 justify-between text-xs xs:text-sm px-2 gap-4">
+
                 {menuItem.ingredients &&
                   <p>{menuItem.ingredients}</p>
                 }
-
-
 
                 {menuItem.weight && menuItem.diameter ?
                   <div className="min-w-[82px]">
@@ -56,12 +54,11 @@ function MenuCategory({ data }: MenuCategoryProps) {
                     <span> / {menuItem.diameter}cm</span>
                   </div>
 
-                  :
-                  menuItem.weight ?
+                  : menuItem.weight ?
                     <span>({menuItem.weight}g)</span>
 
-                    : menuItem.volume && menuItem.secondaryVolume ?
-                      <span>({menuItem.volume}l | {menuItem.secondaryVolume}l)</span>
+                    : menuItem.volume && menuItem.secondaryVolume  ?
+                      <span>({menuItem.volume}l | {menuItem.secondaryVolume ? menuItem.secondaryVolume : 'l'})</span>
 
                       : menuItem.volume ?
                         <span>({menuItem.volume}l)</span>
@@ -73,6 +70,7 @@ function MenuCategory({ data }: MenuCategoryProps) {
               </div>
             </div>
           )
+
         })}
       </div>
     </>

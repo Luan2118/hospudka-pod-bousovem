@@ -1,10 +1,12 @@
 import Hero from "./sections/Hero/Hero";
+import Menu from "./sections/Menu/Menu";
 
 function Homepage() {
   return (
-    <div className="h-screen w-screen relative">
+    <main className="h-screen w-screen relative ">
       <Hero />
-    </div>
+      <Menu />
+    </main>
   )
 }
 

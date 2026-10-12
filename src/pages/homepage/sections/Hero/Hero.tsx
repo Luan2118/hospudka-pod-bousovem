@@ -11,7 +11,7 @@ function Hero() {
 
 
 
-      <nav className=" flex justify-between items-center  xs:px-4 sticky z-10">
+      <nav className=" flex justify-between items-center  xxs:px-4 sticky z-10">
         <a href="#hero">
 
           <img src={hospudkaLogo} alt="Logo hospody" className="w-[75px] h-[75px] sm:w-[115px] sm:h-[110px]" />
@@ -29,7 +29,7 @@ function Hero() {
 
       <div className="absolute inset-0 bg-gradient-to-r from-[#171512]/50  to-[#171512]/30" />
 
-      <div className="z-10 absolute font-[Bree_serif] top-1/2 -translate-y-1/2 px-6  xs:px-[clamp(1rem,12vw,12.5rem)] flex flex-col  ">
+      <div className="z-10 absolute font-[Bree_serif] top-1/2 -translate-y-1/2 px-6  xxs:px-[clamp(1rem,12vw,12.5rem)] flex flex-col  ">
         <p className="text-[#D9A441] tracking-[.4em] text-[clamp(0.8rem,2vw,1.25rem)]">VÍTEJTE U NÁS</p>
 
         <h1 className="text-[#FFFDF8] text-[clamp(2.5rem,8vw,4.5rem)] flex flex-col gap-2 leading-none">

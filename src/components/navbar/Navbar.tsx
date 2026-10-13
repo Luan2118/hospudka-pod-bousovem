@@ -4,9 +4,11 @@ import NavLink from "./components/Navlink";
 
 function Navbar() {
   return (
-    <nav className=" flex justify-between items-center  xxs:px-4 fixed z-10 w-full">
-      <Link to='/#hero'>
-        <img src={hospudkaLogo} alt="Logo hospody" className="w-[75px] h-[75px] sm:w-[115px] sm:h-[110px]" />
+    <nav className=" flex justify-between items-center  xxs:px-4 fixed z-20 w-full bg-[#292522]/60 backdrop-blur-md ">
+      <Link to='/#hero' className="flex items-center gap-2">
+        <img src={hospudkaLogo} alt="Logo hospody" className="w-[60px] h-[60px] " />
+        <p className="text-[#FFFDF8]  font-[Bree_serif]">Hospůdka
+pod Boušovem</p>
       </Link>
 
       <div className="flex gap-6 ">

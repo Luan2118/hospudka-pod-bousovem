@@ -11,12 +11,10 @@ function NavLink({ children, link }: NavLinkProps) {
 
   const { pathname } = useLocation();
 
-  console.log(pathname)
-
   const isHomeSection = link === "menu" || link === "kontakt" || link === "hero";
 
   const className =
-    "text-sm sm:text-base md:text-xl font-[Bree_serif] text-[#FFFDF8] px-2 sm:px-6 lg:px-8";
+    "text-sm sm:text-base  font-[Bree_serif] text-[#FFFDF8] px-2 sm:px-6";
 
 
   function scrollToTop() {

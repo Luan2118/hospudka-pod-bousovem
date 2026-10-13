@@ -11,14 +11,15 @@ import payment from "../../../../assets/images/payment.png"
 function Contact() {
 
   return (
-    <section id="contact" className="flex justify-between bg-[#F5F0E6] pt-15 pb-10 px-55 gap-15 font-[Bree_serif] text-[#2B241F]">
+    <section id="contact" className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 bg-[#F5F0E6] pt-15 pb-10 px-5 md:px-15 lg:px-20 3xl:px-40 gap-10  2xl:gap-15 font-[Bree_serif] text-[#2B241F]">
 
-      <div className="flex  flex-col gap-2 text-base ">
+
+      <div className="flex  flex-col gap-2 ">
 
         <div className="flex items-center mb-6 gap-2">
           <img src={hospodaLogo} alt="" className="w-[90px] h-[90px]" />
 
-          <div className="flex flex-col  text-4xl tracking-wide gap-1 ">
+          <div className="flex flex-col text-2xl 2xl:text-4xl tracking-wide gap-1 ">
             <span>Hospůdka</span>
             <span>pod Boušovem</span>
           </div>
@@ -32,27 +33,27 @@ function Contact() {
         <ContactItem src={facebook}>Facebook</ContactItem>
         <ContactItem src={google}>Google</ContactItem>
 
-        <hr className="my-4" />
+        <hr className="my-4 max-w-[400px]" />
 
-        <div className="flex gap-2 pl-2">
+        <div className="flex gap-2 pl-2 text-sm 2xl:text-base">
           <span>Provotovatel:</span>
           <span>Radek Štangl</span>
         </div>
 
-        <div className="flex gap-2 pl-2">
+        <div className="flex gap-2 pl-2 text-sm 2xl:text-base">
           <span>Odpovědná osoba:</span>
           <span>Radek Štangl</span>
         </div>
 
-        <div className="flex gap-2 pl-2">
+        <div className="flex gap-2 pl-2 text-sm 2xl:text-base">
           <span>IČ:</span>
           <span>14150280</span>
         </div>
       </div>
 
 
-      <div className="flex flex-col gap-4 pt-5 px-15 border border-t-0 border-b-0 border-[#000000]/20">
-        <p className="text-2xl tracking-wide">Otevírací doba</p>
+      <div className="flex flex-col gap-4 pt-5 xl:border xl:px-15 2xl:px-20 xl:border-t-0 xl:border-b-0 xl:border-[#000000]/20 max-w-[380px] xl:max-w-none">
+        <p className="text-xl 2xl:text-2xl tracking-wide">Otevírací doba</p>
 
         <div className="flex flex-col gap-3">
           <OpeningHours closed={true}>Pondělí</OpeningHours>
@@ -66,12 +67,12 @@ function Contact() {
       </div>
 
 
-      <div className="flex flex-col gap-10 ">
+      <div className="flex flex-col gap-10  w-full col-span-2 xl:col-span-1">
         <img src={payment} alt="" className="max-w-[350px] max-h-[150px]" />
 
         <div>
           <p className="text-2xl mb-4">Mapa</p>
-          <iframe width="500px" height="250px"  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB2NIWI3Tv9iDPrlnowr_0ZqZWoAQydKJU&q=Hosp%C5%AFdka%20pod%20Bou%C5%A1ovem%2C%20%C4%8D.p%2C%20V%C5%A1ekary-Hol%C3%BD%C5%A1ov%2C%20Czechia&zoom=19&maptype=roadmap"></iframe>
+          <iframe className="w-full  2xl:w-[500px] h-[250px]"   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB2NIWI3Tv9iDPrlnowr_0ZqZWoAQydKJU&q=Hosp%C5%AFdka%20pod%20Bou%C5%A1ovem%2C%20%C4%8D.p%2C%20V%C5%A1ekary-Hol%C3%BD%C5%A1ov%2C%20Czechia&zoom=19&maptype=roadmap"></iframe>
         </div>
 
 

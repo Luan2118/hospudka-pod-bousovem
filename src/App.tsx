@@ -11,10 +11,9 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<Layout />}>
-      <Route index element={<Homepage />}/>
-      <Route path='nas-pribeh' element={<NasPribeh />}/>
+        <Route index element={<Homepage />} />
+        <Route path='/nas-pribeh' element={<NasPribeh />} />
       </Route>
-      
     </Routes>
   )
 }

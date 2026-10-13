@@ -4,11 +4,11 @@ import Event from "./sections/Events/Event";
 
 function Homepage() {
   return (
-    <main className="h-screen w-screen relative ">
+    <>
       <Hero />
       <Menu />
       <Event />
-    </main>
+    </>
   )
 }
 

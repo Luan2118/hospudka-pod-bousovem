@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 type NavLinkProps = {
   children: ReactNode
-  link: 'menu' | 'galerie' | 'kontakt'
+  link: 'menu' | 'galerie' | 'kontakt' | 'nas-pribeh'
 }
 
 function NavLink({children, link}: NavLinkProps) {

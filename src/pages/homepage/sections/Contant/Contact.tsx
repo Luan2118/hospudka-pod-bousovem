@@ -67,12 +67,12 @@ function Contact() {
       </div>
 
 
-      <div className="flex flex-col gap-10  w-full md:col-span-2 xl:col-span-1">
-        <img src={payment} alt="" className="max-w-[350px] max-h-[150px]" />
+      <div className="flex flex-col gap-2 w-full md:col-span-2 xl:col-span-1">
+        <img src={payment} alt="" className="max-w-[450px] 3xl:max-w-[500px]" />
 
         <div>
           <p className="text-2xl mb-4">Mapa</p>
-          <iframe className="w-full  2xl:w-[500px] h-[250px]"   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB2NIWI3Tv9iDPrlnowr_0ZqZWoAQydKJU&q=Hosp%C5%AFdka%20pod%20Bou%C5%A1ovem%2C%20%C4%8D.p%2C%20V%C5%A1ekary-Hol%C3%BD%C5%A1ov%2C%20Czechia&zoom=19&maptype=roadmap"></iframe>
+          <iframe className="w-full  3xl:w-[550px] h-[250px] 2xl:h-[300px] border border-[#D9A441]/5 rounded-sm"   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB2NIWI3Tv9iDPrlnowr_0ZqZWoAQydKJU&q=Hosp%C5%AFdka%20pod%20Bou%C5%A1ovem%2C%20%C4%8D.p%2C%20V%C5%A1ekary-Hol%C3%BD%C5%A1ov%2C%20Czechia&zoom=19&maptype=roadmap"></iframe>
         </div>
 
 

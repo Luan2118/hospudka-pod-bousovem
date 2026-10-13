@@ -27,7 +27,7 @@ function Event() {
               </div>
             </div>
 
-            <p className="text-2xl lg:text-3xl text-[#FFFDF8]">{event.title}</p>
+            <p className="text-3xl lg:text-4xl text-[#FFFDF8]">{event.title}</p>
             <p className="text-xs lg:text-sm max-w-[500px] text-[#FFFDF8]/90 leading-[2]">{event.description}</p>
 
           </div>

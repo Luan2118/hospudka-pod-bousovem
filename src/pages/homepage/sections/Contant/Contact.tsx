@@ -67,7 +67,7 @@ function Contact() {
       </div>
 
 
-      <div className="flex flex-col gap-10  w-full col-span-2 xl:col-span-1">
+      <div className="flex flex-col gap-10  w-full md:col-span-2 xl:col-span-1">
         <img src={payment} alt="" className="max-w-[350px] max-h-[150px]" />
 
         <div>

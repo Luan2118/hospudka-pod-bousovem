@@ -549,7 +549,7 @@ function Menu() {
 
 
   return (
-    <section className="bg-[#F5F0E6] text-[#2B241F] pt-10 pb-30 lg:pb-50">
+    <section id="menu" className="bg-[#F5F0E6] text-[#2B241F] pt-10 pb-30 lg:pb-50">
 
       <header className="flex flex-col items-center font-[Bree_serif] gap-8 pt-8">
         <h2 className="text-4xl">NAŠE MENU</h2>

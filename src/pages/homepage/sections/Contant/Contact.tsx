@@ -11,7 +11,7 @@ import payment from "../../../../assets/images/payment.png"
 function Contact() {
 
   return (
-    <section id="contact" className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 bg-[#F5F0E6] pt-15 pb-10 px-5 md:px-15 lg:px-20 3xl:px-40 gap-10  2xl:gap-15 font-[Bree_serif] text-[#2B241F]">
+    <section id="kontakt" className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 bg-[#F5F0E6] pt-15 pb-10 px-5 md:px-15 lg:px-20 3xl:px-40 gap-10  2xl:gap-15 font-[Bree_serif] text-[#2B241F]">
 
 
       <div className="flex  flex-col gap-2 ">

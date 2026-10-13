@@ -19,9 +19,9 @@ function Hero() {
 
         <div className="flex gap-6 ">
 
-          <NavLink>Menu</NavLink>
-          <NavLink>Galerie</NavLink>
-          <NavLink>Contact</NavLink>
+          <NavLink link='menu'>Menu</NavLink>
+          <NavLink link='galerie'>Galerie</NavLink>
+          <NavLink link='kontakt'>Kontakt</NavLink>
 
         </div>
 

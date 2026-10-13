@@ -9,11 +9,11 @@ function Event() {
     description: 'Přijďte si užít příjemnou předvánoční atmosféru na náš Vánoční jarmark! Těšit se můžete na vepřové i kuřecí řízky, bramborový salát a třeba i malé vánoční dárečky. Rádi přivítáme také všechny, kteří by si chtěli otevřít vlastní stánek a nabídnout své výrobky. Ať už přijdete prodávat, nebo si jen užít vánoční pohodu, těšíme se na vás !'
   }
   return (
-    <section id="akce" className="bg-[#23472C] font-[Bree_serif] lg:h-[560px] py-10 flex flex-col gap-10">
+    <section id="akce" className="bg-[#23472C] font-[Bree_serif] py-10 pb-25 flex flex-col gap-10 lg:gap-15">
 
       <header className="text-[#FFFDF8] flex flex-col items-center gap-4">
         <h2 className="text-4xl lg:text-5xl">Akce u nás</h2>
-        <p className="max-w-[550px] text-center text-[#FFFDF8]/80 text-xs lg:text-sm  px-5 xxs:px-10 ">Rádi se společně bavíme! Pořádáme nejrůznější akce, soutěže a setkání, při kterých si užijete dobrou náladu a příjemnou atmosféru.</p>
+        <p className="max-w-[450px] text-center text-[#FFFDF8]/80 text-xs lg:text-sm  px-5 xxs:px-10 ">Rádi se společně bavíme! Pořádáme nejrůznější akce, soutěže a setkání, při kterých si užijete dobrou náladu a příjemnou atmosféru.</p>
       </header>
 
       <div className="flex flex-col px-5 xxs:px-10 xs:px-15 sm:px-20 lg:flex-row lg:justify-center gap-10">
@@ -31,8 +31,8 @@ function Event() {
             </div>
           </div>
 
-          <p className="text-3xl lg:text-4xl text-[#FFFDF8]">{event.title}</p>
-          <p className="text-xs lg:text-sm max-w-[600px] text-[#FFFDF8]/90">{event.description}</p>
+          <p className="text-2xl lg:text-3xl text-[#FFFDF8]">{event.title}</p>
+          <p className="text-xs lg:text-sm max-w-[500px] text-[#FFFDF8]/90 leading-[2]">{event.description}</p>
         </div>
       </div>
     </section>

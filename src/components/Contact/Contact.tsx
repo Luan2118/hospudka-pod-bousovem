@@ -1,12 +1,12 @@
-import hospodaLogo from "../../../../assets/images/hospudka-logo.png";
-import location from "../../../../assets/icons/location.png";
-import telNumber from "../../../../assets/icons/tel-number.png";
-import email from "../../../../assets/icons/email.png";
-import facebook from "../../../../assets/icons/facebook.png";
-import google from "../../../../assets/icons/google.png";
+import hospodaLogo from "../../assets/images/hospudka-logo.png";
+import location from "../../assets/icons/location.png";
+import telNumber from "../../assets/icons/tel-number.png";
+import email from "../../assets/icons/email.png";
+import facebook from "../../assets/icons/facebook.png";
+import google from "../../assets/icons/google.png";
 import ContactItem from "./components/ContactItem";
 import OpeningHours from "./components/OpeningHours";
-import payment from "../../../../assets/images/payment.png"
+import payment from "../../assets/images/payment.png"
 
 function Contact() {
 

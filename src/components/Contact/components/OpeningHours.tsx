@@ -1,4 +1,3 @@
-import { p } from "motion/react-client";
 import type { ReactNode } from "react";
 
 type OpeningHoursProps = {

@@ -1,0 +1,83 @@
+import hospodaLogo from "../../../../assets/images/hospudka-logo.png";
+import location from "../../../../assets/icons/location.png";
+import telNumber from "../../../../assets/icons/tel-number.png";
+import email from "../../../../assets/icons/email.png";
+import facebook from "../../../../assets/icons/facebook.png";
+import google from "../../../../assets/icons/google.png";
+import ContactItem from "./components/ContactItem";
+import OpeningHours from "./components/OpeningHours";
+import payment from "../../../../assets/images/payment.png"
+
+function Contact() {
+
+  return (
+    <section id="contact" className="flex justify-between bg-[#F5F0E6] pt-15 pb-10 px-55 gap-15 font-[Bree_serif] text-[#2B241F]">
+
+      <div className="flex  flex-col gap-2 text-base ">
+
+        <div className="flex items-center mb-6 gap-2">
+          <img src={hospodaLogo} alt="" className="w-[90px] h-[90px]" />
+
+          <div className="flex flex-col  text-4xl tracking-wide gap-1 ">
+            <span>Hospůdka</span>
+            <span>pod Boušovem</span>
+          </div>
+        </div>
+
+        <ContactItem src={location}>č.p 1, 345 62 Všekary-Holýšov</ContactItem>
+
+        <ContactItem src={telNumber}>606 536 633</ContactItem>
+
+        <ContactItem src={email}>hospudkapodbousovem@email.cz</ContactItem>
+        <ContactItem src={facebook}>Facebook</ContactItem>
+        <ContactItem src={google}>Google</ContactItem>
+
+        <hr className="my-4" />
+
+        <div className="flex gap-2 pl-2">
+          <span>Provotovatel:</span>
+          <span>Radek Štangl</span>
+        </div>
+
+        <div className="flex gap-2 pl-2">
+          <span>Odpovědná osoba:</span>
+          <span>Radek Štangl</span>
+        </div>
+
+        <div className="flex gap-2 pl-2">
+          <span>IČ:</span>
+          <span>14150280</span>
+        </div>
+      </div>
+
+
+      <div className="flex flex-col gap-4 pt-5 px-15 border border-t-0 border-b-0 border-[#000000]/20">
+        <p className="text-2xl tracking-wide">Otevírací doba</p>
+
+        <div className="flex flex-col gap-3">
+          <OpeningHours closed={true}>Pondělí</OpeningHours>
+          <OpeningHours openingHour="14:00" closingHour="18:30" closed={false}>Úterý</OpeningHours>
+          <OpeningHours openingHour="14:00" closingHour="18:30" closed={false}>Středa</OpeningHours>
+          <OpeningHours openingHour="14:00" closingHour="18:30" closed={false}>Čtvrtek</OpeningHours>
+          <OpeningHours openingHour="14:00" closingHour="18:30" closed={false}>Pátek</OpeningHours>
+          <OpeningHours openingHour="14:00" closingHour="23:30" closed={false}>Sobota</OpeningHours>
+          <OpeningHours openingHour="14:00" closingHour="18:30" closed={false}>Neděle</OpeningHours>
+        </div>
+      </div>
+
+
+      <div className="flex flex-col gap-10 ">
+        <img src={payment} alt="" className="max-w-[350px] max-h-[150px]" />
+
+        <div>
+          <p className="text-2xl mb-4">Mapa</p>
+          <iframe width="500px" height="250px"  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB2NIWI3Tv9iDPrlnowr_0ZqZWoAQydKJU&q=Hosp%C5%AFdka%20pod%20Bou%C5%A1ovem%2C%20%C4%8D.p%2C%20V%C5%A1ekary-Hol%C3%BD%C5%A1ov%2C%20Czechia&zoom=19&maptype=roadmap"></iframe>
+        </div>
+
+
+      </div>
+    </section>
+  )
+}
+
+export default Contact;

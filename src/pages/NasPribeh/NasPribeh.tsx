@@ -5,11 +5,11 @@ import StorySection from "./components/StorySection";
 
 function NasPribeh() {
   return (
-    <div id="nas-pribeh" className="flex flex-col font-[Bree_serif] text-[#2B241F] bg-[#F5F0E6] pb-15  pt-[100px] px-5 sm:px-10 gap-10 lg:gap-20 xl:px-30 mx-auto">
+    <div id="nas-pribeh" className="flex flex-col font-[Bree_serif] text-[#2B241F] bg-[#F5F0E6] pb-15  pt-[100px] px-5 sm:px-10 gap-10  xl:px-30 2xl:px-60">
 
-      <div className="flex flex-col justify-center items-center gap-2">
-        <p className="text-4xl">Náš příběh</p>
-        <p className="text-[#2B241F]/70 max-w-[300px] text-center text-sm">Od rodinného domu až po hospůdku, kterou dnes znáte.</p>
+      <div className="flex flex-col justify-center items-center gap-4">
+        <p className="text-5xl">Náš příběh</p>
+        <p className="text-[#2B241F]/70 text-center text-sm">Od rodinného domu až po hospůdku, kterou dnes znáte.</p>
       </div>
 
       <div>

@@ -14,7 +14,7 @@ function NavLink({ children, link }: NavLinkProps) {
   const isHomeSection = link === "menu" || link === "kontakt" || link === "hero";
 
   const className =
-    "text-sm sm:text-base  font-[Bree_serif] text-[#FFFDF8] px-2 sm:px-6";
+    `font-[Bree_serif] text-[#FFFDF8] px-2 sm:px-6 `;
 
 
   function scrollToTop() {

@@ -4,6 +4,7 @@ import './App.css'
 import NasPribeh from './pages/NasPribeh/NasPribeh'
 import Layout from './components/layout/Layout'
 import Homepage from './pages/homepage/Homepage'
+import Galerie from './pages/galerie/Galerie'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <Route path='/' element={<Layout />}>
         <Route index element={<Homepage />} />
         <Route path='/nas-pribeh' element={<NasPribeh />} />
+        <Route path='/galerie' element={<Galerie />} />
       </Route>
     </Routes>
   )

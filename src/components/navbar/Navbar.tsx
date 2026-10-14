@@ -9,7 +9,7 @@ function Navbar() {
   const isNotHomepage = pathname !== '/'
 
   return (
-    <nav className={`flex justify-between items-center  xxs:px-4 relative z-20 w-full py-1 ${isNotHomepage && 'bg-[#403A35]/90 backdrop-blur-md '}`}>
+    <nav className={`flex justify-between items-center  xxs:px-4 absolute z-20 w-full py-1 ${isNotHomepage && 'bg-[#403A35]/90 backdrop-blur-md '}`}>
       <Link to='/#hero' className="flex items-center gap-2">
         <img src={hospudkaLogo} alt="Logo hospody" className="w-[60px] h-[60px] " />
         <p className="text-[#FFFDF8]  font-[Bree_serif]">Hospůdka

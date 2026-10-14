@@ -3,6 +3,7 @@ import Navbar from "../navbar/Navbar";
 import Contact from "../Contact/Contact";
 import { useLocation } from "react-router";
 import { useEffect } from "react";
+import Footer from "../Footer/Footer";
 
 function Layout() {
 
@@ -27,6 +28,7 @@ function Layout() {
         <Outlet />
       </main>
       <Contact />
+      <Footer />
 
     </div>
   )

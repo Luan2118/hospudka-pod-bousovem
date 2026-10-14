@@ -62,10 +62,10 @@ function Contact() {
       </div>
 
 
-      <div className={`flex flex-col gap-4 pt-5 xl:border xl:px-15 2xl:px-20 xl:border-t-0 xl:border-b-0  max-w-[380px] xl:max-w-none ${pathname !== '/' ? 'xl:border-[#FFFDF8]/20' : 'xl:border-[#2B241F]/20'}`}>
-        <p className="text-xl 2xl:text-2xl tracking-wide">Otevírací doba</p>
+      <div className={`flex flex-col gap-4 pt-5 max-w-[350px]  ${pathname !== '/' ? 'xl:border-[#FFFDF8]/20' : 'xl:border-[#2B241F]/20'}`}>
+        <p className="text-xl 2xl:text-2xl tracking-wide text-center">Otevírací doba</p>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 md:gap-4">
           <OpeningHours closed={true} pathname={pathname}>Pondělí</OpeningHours>
           <OpeningHours openingHour="14:00" closingHour="18:30" closed={false} pathname={pathname}>Úterý</OpeningHours>
           <OpeningHours openingHour="14:00" closingHour="18:30" closed={false} pathname={pathname}>Středa</OpeningHours>

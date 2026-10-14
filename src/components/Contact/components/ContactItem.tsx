@@ -7,8 +7,8 @@ type ContactItemProps = {
 
 function ContactItem({ src, children }: ContactItemProps) {
   return (
-    <div className="flex items-center gap-2 text-sm 2xl:text-base">
-      <img src={src} alt="" className="w-[  px] h-[50px]"/>
+    <div className="flex items-center gap-2 text-sm ">
+      <img src={src} alt="" className="w-[35px] h-[35px] "/>
       {children}
     </div>
   )

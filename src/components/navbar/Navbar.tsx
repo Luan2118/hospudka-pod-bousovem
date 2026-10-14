@@ -79,7 +79,7 @@ function Navbar() {
                 </button>
               </div>
 
-              <div className="flex flex-col px-5 text-lg md:text-xl gap-6 mt-15">
+              <div className="flex flex-col px-5 text-lg md:text-xl gap-6 mt-15" onClick={handleMenu}>
                 <NavLink link='hero' >Úvod</NavLink>
                 <hr className="text-[#FFFDF8]/40 w-[80%]" />
                 <NavLink link='/nas-pribeh' >Náš příběh</NavLink>

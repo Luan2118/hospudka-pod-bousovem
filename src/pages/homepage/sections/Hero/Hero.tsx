@@ -4,7 +4,7 @@ import whiteArrow from "../../../../assets/icons/whiteArrow.png"
 
 function Hero() {
   return (
-    <section id="hero" className="flex flex-col min-h-svh">
+    <section id="hero" className="flex flex-col min-h-svh scroll-mt-20">
       <img src={hospudkaFrontView} alt="Hospůdka pod Boušovem" className="h-screen w-screen object-cover  absolute inset-0" />
 
 

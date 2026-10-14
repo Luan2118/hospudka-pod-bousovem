@@ -4,7 +4,7 @@ import NavLink from "./components/Navlink";
 
 function Navbar() {
 
-  const { pathname } = useLocation(); 
+  const { pathname } = useLocation();
 
   const isNotHomepage = pathname !== '/'
 
@@ -13,7 +13,7 @@ function Navbar() {
       <Link to='/#hero' className="flex items-center gap-2">
         <img src={hospudkaLogo} alt="Logo hospody" className="w-[60px] h-[60px] " />
         <p className="text-[#FFFDF8]  font-[Bree_serif]">Hospůdka
-pod Boušovem</p>
+          pod Boušovem</p>
       </Link>
 
       <div className="flex gap-6 ">

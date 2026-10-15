@@ -1,7 +1,7 @@
 import hospodaLogo from "../../assets/images/hospudka-logo.png";
 import location from "../../assets/icons/location.png";
 import locationW from "../../assets/icons/location-w.png";
-import telNumber from "../../assets/icons/tel-number.png";
+import tel from "../../assets/icons/tel.png";
 import telW from "../../assets/icons/tel-w.png";
 import email from "../../assets/icons/email.png";
 import emailW from "../../assets/icons/email-w.png";
@@ -37,7 +37,7 @@ function Contact() {
 
         <ContactItem src={pathname !== '/'  ? locationW : location}>č.p 1, 345 62 Všekary-Holýšov</ContactItem>
 
-        <ContactItem src={pathname !== '/'  ? telW : telNumber}>606 536 633</ContactItem>
+        <ContactItem src={pathname !== '/'  ? telW : tel}>606 536 633</ContactItem>
 
         <ContactItem src={pathname !== '/'  ? emailW : email}>hospudkapodbousovem@email.cz</ContactItem>
         <ContactItem src={pathname !== '/'  ? facebookW : facebook}>Facebook</ContactItem>

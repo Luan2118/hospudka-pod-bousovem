@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "./components/Button";
 import MenuCategory from "./components/MenuCategory";
+import { motion } from "motion/react";
 
 // jidelni listek
 const tomsPizza = {
@@ -552,12 +553,26 @@ function Menu() {
     <section id="menu" className="bg-[#F5F0E6] text-[#2B241F] pt-10 pb-20 lg:pb-30 ">
 
       <header className="flex flex-col items-center font-[Bree_serif] gap-8 pt-8">
-        <h2 className="text-4xl">NAŠE MENU</h2>
-        <div className="flex flex-col gap-2 xxs:flex-row">
+
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, ease: "easeOut" }}  
+          className="text-4xl">
+          NAŠE MENU
+        </motion.h2>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.3, delay: 0.1 ,ease: "easeOut" }}
+          className="flex flex-col gap-2 xxs:flex-row">
           {menuType.map((type) => {
             return <Button key={type} handleMenuButton={handleMenuButton} value={type} menu={menu}>{type}</Button>
           })}
-        </div>
+        </motion.div>
       </header>
 
 

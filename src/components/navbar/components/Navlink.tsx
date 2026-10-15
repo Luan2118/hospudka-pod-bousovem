@@ -11,6 +11,7 @@ function NavLink({ children, link }: NavLinkProps) {
 
   const { pathname } = useLocation();
 
+
   const isHomeSection = link === "menu" || link === "kontakt" || link === "hero";
 
   const className =
@@ -21,7 +22,8 @@ function NavLink({ children, link }: NavLinkProps) {
     window.scrollTo(0, 0)
   }
 
-  if (pathname === '/nas-pribeh' && link === 'menu' || link === 'hero') {
+
+  if (pathname !== '/' && link === 'menu' || link === 'hero') {
     return (
       <a href={`/#${link}`} className={className}>
         {children}

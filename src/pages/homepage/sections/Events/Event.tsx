@@ -1,5 +1,7 @@
 import dateIcon from "../../../../assets/icons/date.png"
 import letniVanoce from "../../../../assets/akce/letni-vanoce.png"
+import { motion } from "motion/react"
+
 function Event() {
 
   const event = {
@@ -13,28 +15,62 @@ function Event() {
 
       <div className="px-5">
         <header className="text-[#FFFDF8]/80 flex flex-col gap-4 mb-5">
-          <h2 className="text-base xl:text-lg">Na co se můžete těšit</h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="text-base xl:text-lg">
+            Na co se můžete těšit
+          </motion.h2>
         </header>
 
-        <div  className="flex flex-col px-5 xxs:px-10 xs:px-15 sm:px-20 lg:flex-row lg:justify-center gap-10 border w-fit border-l-0 border-r-0 py-5 border-[#F5F0E6]/40">
+        <div className="flex flex-col px-5 xxs:px-10 xs:px-15 sm:px-20 lg:flex-row lg:justify-center gap-10 border w-fit border-l-0 border-r-0 py-5 border-[#F5F0E6]/40">
           <div className="flex flex-col gap-4 my-auto mx-auto lg:mx-0">
-            <div className="flex items-center gap-5">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
+              className="flex items-center gap-5">
               <img src={dateIcon} alt="" className="w-[35px] h-[35px]" />
               <div className="text-[#D9A441] text-base flex gap-2">
                 <span>{event.date}</span>
                 <span>|</span>
                 <span> OD {event.time}</span>
               </div>
+            </motion.div>
+
+            <div className="overflow-hidden">
+              <motion.p
+                initial={{ opacity: 0, y: '100%' }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+                className="text-3xl lg:text-4xl text-[#FFFDF8]">
+                {event.title}
+              </motion.p>
             </div>
 
-            <p className="text-3xl lg:text-4xl text-[#FFFDF8]">{event.title}</p>
-            <p className="text-xs lg:text-sm max-w-[500px] text-[#FFFDF8]/90 leading-[2]">{event.description}</p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
+              className="text-xs lg:text-sm max-w-[500px] text-[#FFFDF8]/90 leading-[2]">
+              {event.description}
+            </motion.p>
 
           </div>
 
-          <div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95}}
+            whileInView={{ opacity: 1, scale: 1}}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+          >
             <img src={letniVanoce} alt="Ukončení sezóny 2026" className=" object-contain border border-[#D9A441]/70 max-h-[300px] mx-auto lg:mx-0" />
-          </div>
+          </motion.div>
         </div>
 
       </div>

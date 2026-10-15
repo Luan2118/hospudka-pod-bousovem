@@ -20,7 +20,7 @@ function Layout() {
   }, [hash, pathname]);
 
   return (
-    <div className="h-screen w-screen relative ">
+    <div className="h-screen relative ">
 
       <Navbar />
 

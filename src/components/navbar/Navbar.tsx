@@ -6,6 +6,7 @@ import closeMenu from "../../assets/icons/close-menu.png"
 import { useState, useEffect } from "react";
 import facebook from "../../assets/icons/facebook-w.png"
 import google from "../../assets/icons/google-w.png"
+import { AnimatePresence, motion } from "motion/react";
 
 function Navbar() {
 
@@ -33,86 +34,116 @@ function Navbar() {
   }, [menuClicked]);
 
   return (
-    <nav className={`flex justify-between items-center  xxs:px-4 absolute z-20 w-full py-1 ${isNotHomepage && 'bg-[#403A35]/85'}`}>
 
-      {!menuClicked &&
-        <>
-          <Link to='/#hero' className="flex items-center gap-2">
-            <img src={hospudkaLogo} alt="Logo hospody" className="w-[60px] h-[60px] " />
-            <p className="text-[#FFFDF8]  font-[Bree_serif]">Hospůdka
-              pod Boušovem</p>
-          </Link>
+    <nav
 
-          <button className="px-2 xxs:px-0 cursor-pointer lg:hidden" onClick={handleMenu} >
-            <img src={blackMenu} alt="Menu navigace" className="w-[40px] h-[40px] rounded-[50%] object-cover" />
-          </button>
+      className={`flex justify-between items-center xxs:px-4 absolute z-20 w-full py-1  ${isNotHomepage && 'bg-[#38271F]/85 '}`}>
 
-        </>
-      }
+      <AnimatePresence>
+        {!menuClicked &&
+          <>
+            <motion.div
+              initial={{ opacity: 0, y: -10}}
+              animate={{ opacity: 1, y: 0}}
+              exit={{ opacity: 0, y: -10}}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="flex justify-between items-center w-full"
+            >
+              <Link to='/#hero' className="flex items-center gap-2">
+                <img src={hospudkaLogo} alt="Logo hospody" className="w-[60px] h-[60px] " />
+                <p className="text-[#FFFDF8]  font-[Bree_serif]">Hospůdka
+                  pod Boušovem</p>
+              </Link>
 
-      <div className="hidden lg:block flex gap-6">
+
+            <button className="px-2 xxs:px-0 cursor-pointer lg:hidden" onClick={handleMenu} >
+              <img src={blackMenu} alt="Menu navigace" className="w-[40px] h-[40px] rounded-[50%] object-cover" />
+            </button>
+            </motion.div>
+
+          </>
+        }
+      </AnimatePresence>
+
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="hidden lg:block flex gap-6">
         <NavLink link='hero'>Úvod</NavLink>
         <NavLink link='/nas-pribeh'>Náš příběh</NavLink>
         <NavLink link='menu'>Menu</NavLink>
         <NavLink link='/galerie'>Galerie</NavLink>
         <NavLink link='kontakt'>Kontakt</NavLink>
-      </div>
+      </motion.div>
 
-      {menuClicked &&
-        <>
-          <div className="absolute inset-0 z-19"></div>
+      <AnimatePresence>
+        {menuClicked &&
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+              className="fixed inset-0 z-19 bg-[#000000]/15"></motion.div>
 
-          <div className="absolute flex flex-col justify-between bg-[#403A35]/30 backdrop-blur-lg top-0 right-0 h-screen">
-            <div>
-              <div className="flex justify-between py-2 px-2 xxs:px-4 gap-10">
-                <Link to='/#hero' className="flex items-center gap-2">
-                  <img src={hospudkaLogo} alt="Logo hospody" className="w-[50px] h-[50px] " />
+            <motion.div
+              initial={{ opacity: 0.6, x: '100%' }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0.6,  x: '100%' }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="absolute flex flex-col justify-between bg-[#38271F]/30 backdrop-blur-lg top-0 right-0 h-screen z-20">
+              <div>
+                <div className="flex justify-between py-2 px-2 xxs:px-4 gap-10">
+                  <Link to='/#hero' className="flex items-center gap-2">
+                    <img src={hospudkaLogo} alt="Logo hospody" className="w-[50px] h-[50px] " />
 
-                  <div className="text-[#FFFDF8]  font-[Bree_serif] flex flex-col">
-                    <span>Hospůdka</span>
-                    <span> pod Boušovem</span>
+                    <div className="text-[#FFFDF8]  font-[Bree_serif] flex flex-col">
+                      <span>Hospůdka</span>
+                      <span> pod Boušovem</span>
+                    </div>
+
+                  </Link>
+                  <button className="cursor-pointer" >
+                    <img src={closeMenu} alt="" className="w-[30px] h-[30px] rounded-[50%] object-cover" onClick={handleMenu} />
+                  </button>
+                </div>
+
+                <div className="flex flex-col px-5 text-lg md:text-xl gap-6 mt-15" onClick={handleMenu}>
+                  <NavLink link='hero' >Úvod</NavLink>
+                  <hr className="text-[#FFFDF8]/40 w-[80%]" />
+                  <NavLink link='/nas-pribeh' >Náš příběh</NavLink>
+                  <hr className="text-[#FFFDF8]/40 w-[80%]" />
+
+                  <NavLink link='menu'>Menu</NavLink>
+                  <hr className="text-[#FFFDF8]/40 w-[80%]" />
+
+                  <NavLink link='/galerie' >Galerie</NavLink>
+                  <hr className="text-[#FFFDF8]/40 w-[80%]" />
+
+                  <NavLink link='kontakt'>Kontakt</NavLink>
+                </div>
+              </div>
+
+              <div className="py-4">
+                <hr className="text-[#FFFDF8]/40 " />
+                <div className="flex flex-col  text-[#FFFDF8] items-center justify-center gap-4 my-auto px-5 mt-5">
+                  <div className="flex items-center justify-center border border-[#FFFDF8]/40 w-[140px] rounded-2xl">
+                    <img src={facebook} alt="facebook" className="w-[40px] h-[40px] z-0" />
+                    <p>Facebook</p>
                   </div>
 
-                </Link>
-                <button className="cursor-pointer" >
-                  <img src={closeMenu} alt="" className="w-[30px] h-[30px] rounded-[50%] object-cover" onClick={handleMenu} />
-                </button>
-              </div>
-
-              <div className="flex flex-col px-5 text-lg md:text-xl gap-6 mt-15" onClick={handleMenu}>
-                <NavLink link='hero' >Úvod</NavLink>
-                <hr className="text-[#FFFDF8]/40 w-[80%]" />
-                <NavLink link='/nas-pribeh' >Náš příběh</NavLink>
-                <hr className="text-[#FFFDF8]/40 w-[80%]" />
-
-                <NavLink link='menu'>Menu</NavLink>
-                <hr className="text-[#FFFDF8]/40 w-[80%]" />
-
-                <NavLink link='/galerie' >Galerie</NavLink>
-                <hr className="text-[#FFFDF8]/40 w-[80%]" />
-
-                <NavLink link='kontakt'>Kontakt</NavLink>
-              </div>
-            </div>
-
-            <div className="py-4">
-              <hr className="text-[#FFFDF8]/40 " />
-              <div className="flex flex-col  text-[#FFFDF8] items-center justify-center gap-4 my-auto px-5 mt-5">
-                <div className="flex items-center justify-center border border-[#FFFDF8]/40 w-[140px] rounded-2xl">
-                  <img src={facebook} alt="facebook" className="w-[40px] h-[40px] z-0" />
-                  <p>Facebook</p>
-                </div>
-
-                <div className="flex items-center justify-center border border-[#FFFDF8]/40 w-[140px] rounded-2xl">
-                  <img src={google} alt="google" className="w-[40px] h-[40px]" />
-                  <p>Google</p>
+                  <div className="flex items-center justify-center border border-[#FFFDF8]/40 w-[140px] rounded-2xl">
+                    <img src={google} alt="google" className="w-[40px] h-[40px]" />
+                    <p>Google</p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-          </div>
-        </>
-      }
+            </motion.div>
+          </>
+        }
+      </AnimatePresence>
 
 
     </nav>

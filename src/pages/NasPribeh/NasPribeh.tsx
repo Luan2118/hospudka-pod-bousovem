@@ -2,14 +2,33 @@ import hospodaZacatek1 from "../../assets/images/hospoda-zacatek-1.png";
 import hospodaZacatek2 from "../../assets/images/hospoda-zacatek-2.png";
 import hospodaZacatek3 from "../../assets/images/hospoda-zacatek-3.png";
 import StorySection from "./components/StorySection";
+import { motion } from "motion/react";
 
 function NasPribeh() {
   return (
     <div id="nas-pribeh" className="flex flex-col font-[Bree_serif] text-[#2B241F] bg-[#F5F0E6] pb-15  pt-[100px] px-5 sm:px-10 gap-10  xl:px-30 2xl:px-60">
 
       <div className="flex flex-col justify-center items-center gap-4">
-        <p className="text-5xl">Náš příběh</p>
-        <p className="text-[#2B241F]/70 text-center text-sm">Od rodinného domu až po hospůdku, kterou dnes znáte.</p>
+        <div className="overflow-hidden">
+          <motion.p
+            initial={{ opacity: 0, y: '100%' }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-5xl">
+            Náš příběh
+          </motion.p>
+        </div>
+
+        <div className="overflow-hidden">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
+            className="text-[#2B241F]/70 text-center text-sm">
+            Od rodinného domu až po hospůdku, kterou dnes znáte.
+          </motion.p>
+        </div>
+
       </div>
 
       <div>

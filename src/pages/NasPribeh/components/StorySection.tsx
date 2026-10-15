@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 
 type StorySection = {
   title: string
@@ -11,19 +12,62 @@ function StorySection({ title, description, image }: StorySection) {
 
       {title === 'Od nápadu ke skutečnosti' ?
         <>
-          <img src={image} alt="" className="w-full rounded-md order-2 lg:order-1"/>
+          <motion.img
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+            src={image}
+            alt=""
+            className="w-full rounded-md order-2 lg:order-1" />
           <div className="flex flex-col gap-6 my-auto xl:px-12 order-1 lg:order-2">
-            <p className="text-4xl">{title}</p>
-            <p className="text-[#2B241F]/80 max-w-[800px]">{description}</p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+              className="text-4xl">
+              {title}
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: 0.3, ease: "easeOut" }}
+              className="text-[#2B241F]/80 max-w-[800px]">
+              {description}
+            </motion.p>
           </div>
         </>
         :
         <>
           <div className="flex flex-col gap-6 my-auto xl:px-12">
-            <p className="text-4xl">{title}</p>
-            <p className="text-[#2B241F]/80 max-w-[800px]">{description}</p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+              className="text-4xl">
+              {title}
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: 0.3, ease: "easeOut" }}
+              className="text-[#2B241F]/80 max-w-[800px]">
+              {description}
+            </motion.p>
           </div>
-          <img src={image} alt=""  className="w-full rounded-md"/>
+
+          <motion.img
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+            src={image}
+            alt=""
+            className="w-full rounded-md" />
         </>
       }
 

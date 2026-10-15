@@ -13,7 +13,6 @@ import Xbutton from "../../assets/icons/Xbutton.png"
 import imageArrow from "../../assets/icons/imageArrow.png"
 import { useRef, useState } from "react"
 import { motion } from "motion/react"
-import { div } from "motion/react-client"
 
 function Galerie() {
 

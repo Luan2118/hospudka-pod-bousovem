@@ -47,7 +47,7 @@ function Navbar() {
               animate={{ opacity: 1, y: 0}}
               exit={{ opacity: 0, y: -10}}
               transition={{ duration: 0.4, ease: "easeOut" }}
-              className="flex justify-between items-center w-full"
+              className="flex justify-between items-center w-full lg:w-fit"
             >
               <Link to='/#hero' className="flex items-center gap-2">
                 <img src={hospudkaLogo} alt="Logo hospody" className="w-[60px] h-[60px] " />

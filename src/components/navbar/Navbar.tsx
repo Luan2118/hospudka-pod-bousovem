@@ -37,7 +37,7 @@ function Navbar() {
 
     <nav
 
-      className={`flex justify-between items-center xxs:px-4 absolute z-20 w-full py-1  ${isNotHomepage && 'bg-[#38271F]/85 '}`}>
+      className={`flex justify-between items-center xxs:px-4 absolute z-20 w-full py-1  ${isNotHomepage && 'bg-[#38271F]/85 h-[60px]'}`}>
 
       <AnimatePresence>
         {!menuClicked &&

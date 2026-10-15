@@ -12,6 +12,8 @@ import roma from "../../assets/galerie/Roma.png"
 import Xbutton from "../../assets/icons/Xbutton.png"
 import imageArrow from "../../assets/icons/imageArrow.png"
 import { useRef, useState } from "react"
+import { motion } from "motion/react"
+import { div } from "motion/react-client"
 
 function Galerie() {
 
@@ -55,17 +57,35 @@ function Galerie() {
 
   return (
     <div className={"px-5 md:px-20 xl:px-40 2xl:px-80 py-30 flex flex-col gap-10  bg-[#F5F0E6]"}>
-      <h2 className="text-5xl font-[Bree_serif] text-[#2B241F]">Galerie</h2>
+      <div className="overflow-hidden">
+        <motion.h2
+          initial={{ opacity: 0, y: '100%' }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-5xl font-[Bree_serif] text-[#2B241F]">
+          Galerie
+        </motion.h2>
+      </div>
 
-      <div className="columns-1 md:columns-2 lg:columns-3 gap-6">
+      <motion.div
+        initial={{ opacity: 0, }}
+        animate={{ opacity: 1, }}
+        transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+        className="columns-1 md:columns-2 lg:columns-3 gap-6 rounded-2xl">
         {images.map((image, index) => {
           return (
-            <button key={image} onClick={() => openDialog(index)} className="cursor-pointer">
-              <img src={image} className="w-full  mb-4 rounded-2xl break-inside-avoid" />
-            </button>
+            <div className="overflow-hidden rounded-3xl mb-4">
+              <motion.button
+                whileHover={{ scale: 1.1, transition:{duration: 0.3, ease:"easeOut"} }}
+                key={image}
+                onClick={() => openDialog(index)}
+                className="cursor-pointer">
+                <img src={image} className="w-full  rounded-2xl break-inside-avoid" />
+              </motion.button>
+            </div>
           )
         })}
-      </div>
+      </motion.div>
 
       <dialog ref={dialogRef} className="relative w-full h-full bg-transparent overflow-hidden open:flex flex-col items-center pt-20 z-80" >
 

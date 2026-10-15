@@ -82,7 +82,7 @@ function Contact() {
 
         <div>
           <p className="text-xl mb-4">Mapa</p>
-          <iframe className="w-full   h-[250px]  border border-[#D9A441]/5 rounded-sm" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB2NIWI3Tv9iDPrlnowr_0ZqZWoAQydKJU&q=Hosp%C5%AFdka%20pod%20Bou%C5%A1ovem%2C%20%C4%8D.p%2C%20V%C5%A1ekary-Hol%C3%BD%C5%A1ov%2C%20Czechia&zoom=19&maptype=roadmap"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d457.0801312891659!2d13.042192638840696!3d49.6046223547894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470abd006c185285%3A0xc9abed05071997f5!2sHosp%C5%AFdka%20pod%20Bou%C5%A1ovem!5e0!3m2!1sen!2scz!4v1792084939020!5m2!1sen!2scz" className="w-full   h-[250px]  border border-[#D9A441]/5 rounded-sm" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" ></iframe>
         </div>
 
 

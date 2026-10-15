@@ -58,11 +58,14 @@ function Hero() {
       </div>
 
 
-      <div className="absolute bottom-8 w-full flex  justify-center">
-        <button className="p-3 rounded-[50%] bg-white/10 backdrop-blur-md">
-          <img src={whiteArrow} alt="" className="w-[30px] h-[30px]" />
-        </button>
-      </div>
+      <motion.div 
+        animate={{y: [0, 6, 0]}}
+        transition={{duration: 1, repeat: Infinity, ease:"easeInOut"}}
+      className="absolute bottom-8 w-full flex  justify-center">
+        <a className="p-2 rounded-[50%] bg-white/10 backdrop-blur-md" href="#menu">
+          <img src={whiteArrow} alt="" className="w-[25px] h-[25px]" />
+        </a>
+      </motion.div>
 
     </section>
   )

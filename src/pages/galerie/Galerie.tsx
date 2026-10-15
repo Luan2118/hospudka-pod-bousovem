@@ -73,7 +73,7 @@ function Galerie() {
         className="columns-1 md:columns-2 lg:columns-3 gap-6 rounded-2xl">
         {images.map((image, index) => {
           return (
-            <div className="overflow-hidden rounded-3xl mb-4">
+            <div className="overflow-hidden rounded-3xl mb-4" key={image}>
               <motion.button
                 whileHover={{ scale: 1.1, transition:{duration: 0.3, ease:"easeOut"} }}
                 key={image}

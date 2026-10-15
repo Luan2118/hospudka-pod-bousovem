@@ -23,7 +23,7 @@ function Hero() {
 
 
         <h1
-          className="text-[#FFFDF8] text-[clamp(2.5rem,8vw,4.5rem)] flex flex-col gap-2 leading-none">
+          className="text-[#FFFDF8] text-[clamp(2.5rem,8vw,4.5rem)] flex flex-col gap-2 leading-[1.2]">
           <span className=" block overflow-hidden">
             <motion.span
               initial={{ y: "100%" }}

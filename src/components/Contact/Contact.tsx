@@ -35,12 +35,12 @@ function Contact() {
           </div>
         </div>
 
-        <ContactItem src={pathname !== '/'  ? locationW : location}>č.p 1, 345 62 Všekary-Holýšov</ContactItem>
+        <ContactItem link="https://www.google.com/maps/place/Hosp%C5%AFdka+pod+Bou%C5%A1ovem/@49.604691,13.0426129,17z/data=!3m1!4b1!4m6!3m5!1s0x470abd006c185285:0xc9abed05071997f5!8m2!3d49.604691!4d13.0426129!16s%2Fg%2F11w240fq87!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D"  src={pathname !== '/'  ? locationW : location}>č.p 1, 345 62 Všekary-Holýšov</ContactItem>
 
-        <ContactItem src={pathname !== '/'  ? telW : tel}>606 536 633</ContactItem>
+        <ContactItem link="tel:+420606536633" src={pathname !== '/'  ? telW : tel}>606 536 633</ContactItem>
 
-        <ContactItem src={pathname !== '/'  ? emailW : email}>hospudkapodbousovem@email.cz</ContactItem>
-        <ContactItem src={pathname !== '/'  ? facebookW : facebook}>Facebook</ContactItem>
+        <ContactItem link="mailto:hospudkapodbousovem@email.cz" src={pathname !== '/'  ? emailW : email}>hospudkapodbousovem@email.cz</ContactItem>
+        <ContactItem link="https://www.facebook.com/profile.php?id=100093410382349" src={pathname !== '/'  ? facebookW : facebook}>Facebook</ContactItem>
 
         <hr className={`my-4 max-w-[400px] ${pathname !== '/' ? 'text-[#FFFDF8]/20' : 'text-[#2B241F]/20'}`} />
 

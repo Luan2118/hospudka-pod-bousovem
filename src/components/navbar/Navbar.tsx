@@ -43,9 +43,9 @@ function Navbar() {
         {!menuClicked &&
           <>
             <motion.div
-              initial={{ opacity: 0, y: -10}}
-              animate={{ opacity: 1, y: 0}}
-              exit={{ opacity: 0, y: -10}}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
               className="flex justify-between items-center w-full lg:w-fit"
             >
@@ -56,9 +56,9 @@ function Navbar() {
               </Link>
 
 
-            <button className="px-2 xxs:px-0 cursor-pointer lg:hidden" onClick={handleMenu} >
-              <img src={blackMenu} alt="Menu navigace" className="w-[40px] h-[40px] rounded-[50%] object-cover" />
-            </button>
+              <button className="px-2 xxs:px-0 cursor-pointer lg:hidden" onClick={handleMenu} >
+                <img src={blackMenu} alt="Menu navigace" className="w-[40px] h-[40px] rounded-[50%] object-cover" />
+              </button>
             </motion.div>
 
           </>
@@ -90,7 +90,7 @@ function Navbar() {
             <motion.div
               initial={{ opacity: 0.6, x: '100%' }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0.6,  x: '100%' }}
+              exit={{ opacity: 0.6, x: '100%' }}
               transition={{ duration: 0.35, ease: "easeOut" }}
               className="absolute flex flex-col justify-between bg-[#38271F]/30 backdrop-blur-lg top-0 right-0 h-screen z-20">
               <div>
@@ -127,10 +127,11 @@ function Navbar() {
 
               <div className="flex flex-col justify-center  gap-4 py-4">
                 <hr className="text-[#FFFDF8]/40 " />
-                  <a href="https://www.facebook.com/profile.php?id=100093410382349" className="flex items-center justify-center border border-[#FFFDF8]/40 rounded-3xl gap-1 text-[#FFFDF8] mx-auto px-4 py-[3px] ">
-                    <img src={facebook} alt="facebook" className="w-[30px] h-[30px]" />
-                    <span className="w-[70px]">Facebook</span>
-                  </a>
+                <a href="https://www.facebook.com/profile.php?id=100093410382349" target="_blank"
+                  rel="noopener noreferrer" className="flex items-center justify-center border border-[#FFFDF8]/40 rounded-3xl gap-1 text-[#FFFDF8] mx-auto px-4 py-[3px] ">
+                  <img src={facebook} alt="facebook" className="w-[30px] h-[30px]" />
+                  <span className="w-[70px]">Facebook</span>
+                </a>
               </div>
 
             </motion.div>

@@ -14,7 +14,7 @@ function ContactItem({ src, children, link }: ContactItemProps) {
         <img src={src} alt="" className="w-[35px] h-[35px] " />
         {children}
       </span>
-      <hr className="w-full ml-2 opacity-0 scale-x-0 origin-left group-hover:opacity-60  group-hover:scale-x-100 transition-transform duration-500 ease-out"/>
+      <hr className="w-full ml-2 opacity-0 scale-x-0 origin-left group-hover:opacity-50 group-hover:scale-x-100 transition-transform duration-650 ease-out"/>
     </a>
   )
 }

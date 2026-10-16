@@ -9,9 +9,12 @@ type ContactItemProps = {
 function ContactItem({ src, children, link }: ContactItemProps) {
   return (
     <a href={link} target="_blank"
-      rel="noopener noreferrer" className="flex items-center gap-2 text-sm w-fit">
-      <img src={src} alt="" className="w-[35px] h-[35px] " />
-      {children}
+      rel="noopener noreferrer" className="flex flex-col group items-center text-sm w-fit">
+      <span className="flex items-center">
+        <img src={src} alt="" className="w-[35px] h-[35px] " />
+        {children}
+      </span>
+      <hr className="w-full ml-2 opacity-0 scale-x-0 origin-left group-hover:opacity-60  group-hover:scale-x-100 transition-transform duration-500 ease-out"/>
     </a>
   )
 }

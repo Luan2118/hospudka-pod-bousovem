@@ -7,8 +7,6 @@ import email from "../../assets/icons/email.png";
 import emailW from "../../assets/icons/email-w.png";
 import facebook from "../../assets/icons/facebook.png";
 import facebookW from "../../assets/icons/facebook-w.png";
-import google from "../../assets/icons/google.png";
-import googleW from "../../assets/icons/google-w.png";
 import ContactItem from "./components/ContactItem";
 import OpeningHours from "./components/OpeningHours";
 import payment from "../../assets/images/payment.png"

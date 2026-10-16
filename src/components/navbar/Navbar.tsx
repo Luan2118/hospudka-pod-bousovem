@@ -5,7 +5,6 @@ import blackMenu from "../../assets/icons/black-menu.png"
 import closeMenu from "../../assets/icons/close-menu.png"
 import { useState, useEffect } from "react";
 import facebook from "../../assets/icons/facebook-w.png"
-import google from "../../assets/icons/google-w.png"
 import { AnimatePresence, motion } from "motion/react";
 
 function Navbar() {
@@ -37,7 +36,7 @@ function Navbar() {
 
     <nav
 
-      className={`flex justify-between items-center xxs:px-4 absolute z-20 w-full py-1  ${isNotHomepage && 'bg-[#38271F]/85 h-[60px]'}`}>
+      className={`flex justify-between items-center xxs:px-4 md:pr-6 absolute z-20 w-full py-1  ${isNotHomepage && 'bg-[#38271F]/85 h-[60px]'}`}>
 
       <AnimatePresence>
         {!menuClicked &&
@@ -69,7 +68,7 @@ function Navbar() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className="hidden lg:block flex gap-6">
+        className="hidden lg:flex gap-8">
         <NavLink link='hero'>Úvod</NavLink>
         <NavLink link='/nas-pribeh'>Náš příběh</NavLink>
         <NavLink link='menu'>Menu</NavLink>

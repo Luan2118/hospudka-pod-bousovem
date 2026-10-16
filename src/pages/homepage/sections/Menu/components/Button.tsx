@@ -5,11 +5,11 @@ type ButtonProps = {
   children: ReactNode;
   handleMenuButton: (value: string) => void;
   value: string;
-  menu: string;
+  menuType: string;
 };
 
-function Button({ children, handleMenuButton, value, menu }: ButtonProps) {
-  const isActive = menu === value;
+function Button({ children, handleMenuButton, value, menuType }: ButtonProps) {
+  const isActive = menuType === value;
 
   return (
     <motion.button

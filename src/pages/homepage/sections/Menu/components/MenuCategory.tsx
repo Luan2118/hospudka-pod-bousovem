@@ -1,10 +1,10 @@
 export type MenuItem = {
   id: string;
-  name: string;
+  title: string;
   price: number | null;
 
   // 
-  ingredients?: string;
+  description?: string;
   weight?: number;
   diameter?: number;
 
@@ -34,7 +34,7 @@ function MenuCategory({ data }: MenuCategoryProps) {
           return (
             <div key={menuItem.id} className="font-[Merriweather] flex flex-col gap-1 text-lg font-semibold">
               <div className="flex justify-between w-full text-base">
-                <p className="">{menuItem.name}</p>
+                <p className="">{menuItem.title}</p>
                 <hr className="grow self-end mb-[5px] mx-[6px]" />
 
                 {menuItem.secondaryPrice ?
@@ -44,8 +44,8 @@ function MenuCategory({ data }: MenuCategoryProps) {
 
               <div className="flex text-[#2B241F]/80 justify-between text-xs xs:text-sm px-2 gap-4">
 
-                {menuItem.ingredients &&
-                  <p>{menuItem.ingredients}</p>
+                {menuItem.description &&
+                  <p>{menuItem.description}</p>
                 }
 
                 {menuItem.weight && menuItem.diameter ?

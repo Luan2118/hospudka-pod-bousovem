@@ -41,7 +41,6 @@ function Contact() {
 
         <ContactItem src={pathname !== '/'  ? emailW : email}>hospudkapodbousovem@email.cz</ContactItem>
         <ContactItem src={pathname !== '/'  ? facebookW : facebook}>Facebook</ContactItem>
-        <ContactItem src={pathname !== '/'  ? googleW : google}>Google</ContactItem>
 
         <hr className={`my-4 max-w-[400px] ${pathname !== '/' ? 'text-[#FFFDF8]/20' : 'text-[#2B241F]/20'}`} />
 

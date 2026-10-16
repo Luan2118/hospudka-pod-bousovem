@@ -125,19 +125,12 @@ function Navbar() {
                 </div>
               </div>
 
-              <div className="py-4">
+              <div className="flex flex-col justify-center  gap-4 py-4">
                 <hr className="text-[#FFFDF8]/40 " />
-                <div className="flex flex-col  text-[#FFFDF8] items-center justify-center gap-4  px-5 mt-5">
-                  <div className="flex items-center justify-center border border-[#FFFDF8]/40 px-4 rounded-2xl gap-1">
+                  <a href="https://www.facebook.com/profile.php?id=100093410382349" className="flex items-center justify-center border border-[#FFFDF8]/40 rounded-3xl gap-1 text-[#FFFDF8] mx-auto px-4 py-[3px] ">
                     <img src={facebook} alt="facebook" className="w-[30px] h-[30px]" />
-                    <p className="w-[70px]">Facebook</p>
-                  </div>
-
-                  <div className="flex items-center justify-center border border-[#FFFDF8]/40 px-4  rounded-2xl gap-1">
-                    <img src={google} alt="google" className="w-[30px] h-[30px]" />
-                    <p className="w-[70px]">Google</p>
-                  </div>
-                </div>
+                    <span className="w-[70px]">Facebook</span>
+                  </a>
               </div>
 
             </motion.div>

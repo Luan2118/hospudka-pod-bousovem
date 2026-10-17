@@ -6,16 +6,20 @@ import { client } from "../../sanity/sanityClient"
 
 type GalleryImage = {
   _key: string;
-  alt: string;
+  alt?: string | null;
   asset: {
     url: string;
   };
 }
 
+type GalleryData = {
+  images: GalleryImage[] | null;
+}
+
 
 const galleryQuery = `
   *[_type == "gallery" && _id == "gallery"][0] {
-    images[] {
+    images[defined(asset->url)] {
       _key,
       alt,
       asset->{
@@ -38,7 +42,7 @@ function Galerie() {
         setLoading(true);
         setError(null);
 
-        const data = await client.fetch(galleryQuery);
+        const data = await client.fetch<GalleryData | null>(galleryQuery);
 
         setImages(data?.images ?? []);
       } catch (err) {
@@ -150,7 +154,7 @@ function Galerie() {
               >
                 <img
                   src={image.asset.url}
-                  alt={image.alt}
+                  alt={image.alt ?? ""}
                   className="w-full rounded-2xl"
                 />
               </motion.button>
@@ -161,7 +165,7 @@ function Galerie() {
 
       <dialog onClose={() => setImgIndex(null)} ref={dialogRef} className="relative w-full h-full bg-transparent overflow-hidden open:flex flex-col items-center pt-20 z-80" >
 
-        <button onClick={closeDialog} className="w-[45px]  self-end fixed cursor-pointer" aria-label="Předchozí fotka">
+        <button onClick={closeDialog} className="w-[45px]  self-end fixed cursor-pointer" aria-label="Zavřít fotografii">
           <img src={Xbutton} alt="Zavřít fotografii" />
         </button>
 
@@ -169,7 +173,9 @@ function Galerie() {
           <img src={imageArrow} alt="Zobrait předchozí fotku" />
         </button>
 
-        <img src={dialogImage?.asset.url} alt={dialogImage?.alt} className=" max-h-[80vh] max-w-[90vw]  w-auto h-auto fixed" />
+        {dialogImage && (
+          <img src={dialogImage.asset.url} alt={dialogImage.alt ?? ""} className=" max-h-[80vh] max-w-[90vw]  w-auto h-auto fixed" />
+        )}
 
         <button className="w-[45px] fixed self-end bottom-[50%] cursor-pointer" onClick={showNextImg} aria-label="Následujicí fotka">
           <img src={imageArrow} alt="Zobrait následujicí fotku" />

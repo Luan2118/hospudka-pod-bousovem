@@ -26,9 +26,9 @@ type OpeningDay = {
 type OpeningHoursData = Record<string, OpeningDay | null>;
 
 type ContactData = {
-  phoneNumber: string;
-  email: string;
-  facebookUrl: string | null;
+  phoneNumber?: string | null;
+  email?: string | null;
+  facebookUrl?: string | null;
 };
 
 
@@ -125,6 +125,9 @@ function Contact() {
     getContact();
   }, []);
 
+  const phoneNumber = contact?.phoneNumber?.trim();
+  const contactEmail = contact?.email?.trim();
+  const facebookUrl = contact?.facebookUrl?.trim();
 
   return (
     <section id="kontakt"
@@ -173,23 +176,31 @@ function Contact() {
           </div>
         ) : (
           <>
-            <ContactItem
-              link={`tel:${contact.phoneNumber.replace(/\s/g, "")}`}
-              src={pathname !== "/" ? telW : tel}
-            >
-              {contact.phoneNumber}
-            </ContactItem>
-
-            <ContactItem
-              link={`mailto:${contact.email}`}
-              src={pathname !== "/" ? emailW : email}
-            >
-              {contact.email}
-            </ContactItem>
-
-            {contact.facebookUrl && (
+            {phoneNumber ? (
               <ContactItem
-                link={contact.facebookUrl}
+                link={`tel:${phoneNumber.replace(/\s/g, "")}`}
+                src={pathname !== "/" ? telW : tel}
+              >
+                {phoneNumber}
+              </ContactItem>
+            ) : (
+              <p className="pl-2 text-sm opacity-70">Telefon není momentálně dostupný.</p>
+            )}
+
+            {contactEmail ? (
+              <ContactItem
+                link={`mailto:${contactEmail}`}
+                src={pathname !== "/" ? emailW : email}
+              >
+                {contactEmail}
+              </ContactItem>
+            ) : (
+              <p className="pl-2 text-sm opacity-70">E-mail není momentálně dostupný.</p>
+            )}
+
+            {facebookUrl && (
+              <ContactItem
+                link={facebookUrl}
                 src={pathname !== "/" ? facebookW : facebook}
               >
                 Facebook

@@ -1,19 +1,4 @@
-export type MenuItem = {
-  _id: string;
-  title: string;
-  price: number | null;
-
-  // 
-  description?: string;
-  weight?: number;
-  diameter?: number;
-
-  // Drinks
-  volume?: number;
-  secondaryPrice?: number;
-  secondaryVolume?: number;
-  secondaryLabel?: string;
-};
+import { type MenuItem } from "../Menu";
 
 type MenuCategoryProps = {
   data: {

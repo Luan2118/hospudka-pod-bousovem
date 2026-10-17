@@ -5,11 +5,28 @@ import { motion } from "motion/react";
 import { client } from "../../../../sanity/sanityClient";
 
 
+export type MenuItem = {
+  _id: string;
+  title: string;
+  price: number | null;
+
+  // 
+  description?: string;
+  weight?: number;
+  diameter?: number;
+
+  // Drinks
+  volume?: number;
+  secondaryPrice?: number;
+  secondaryVolume?: number;
+  secondaryLabel?: string;
+};
+
 type MenuCategory = {
   _id: string
   title: string
   menuType: string
-  items: []
+  items: MenuItem[]
 
 }
 
@@ -36,11 +53,11 @@ function Menu() {
     }
   }`
 
-  
+
   const [menu, setMenu] = useState<MenuCategory[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  
+
   console.log(menu)
   useEffect(() => {
 

@@ -94,9 +94,10 @@ function Menu() {
 
   const menuTypeList = ['Jídelní Lístek', 'Nápojový Lístek']
 
-  const menuData =
+  const menuData = (
     menuType === 'Jídelní Lístek' ? foodData :
       menuType === 'Nápojový Lístek' ? drinksData : []
+  ).filter((category) => category.items.length > 0)
 
 
   return (
@@ -155,16 +156,21 @@ function Menu() {
 
 
             <div className="text-[#2B241F] px-5 xs:px-10 md:px-10 lg:px-20 xl:px-40 2xl:px-60">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-15 ">
-
-                {menuData.map((category) => {
-                  return (
-                    <div key={category._id} className={`${category.items.length >= 6 ? 'md:col-span-2' : ''}`}>
-                      <MenuCategory data={category} />
-                    </div>
-                  )
-                })}
-              </div>
+              {menuData.length === 0 ? (
+                <p role="status" className="pt-12 text-center font-[Bree_serif] text-sm text-[#2B241F]/70">
+                  V tomto lístku zatím nejsou žádné položky.
+                </p>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-15 ">
+                  {menuData.map((category) => {
+                    return (
+                      <div key={category._id} className={`${category.items.length >= 6 ? 'md:col-span-2' : ''}`}>
+                        <MenuCategory data={category} />
+                      </div>
+                    )
+                  })}
+                </div>
+              )}
 
             </div>
           </>

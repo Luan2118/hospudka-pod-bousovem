@@ -6,7 +6,6 @@ import facebookY from "../../../../assets/icons/facebook-y.png";
 import facebookB from "../../../../assets/icons/facebook-b.png";
 import redirectY from "../../../../assets/icons/redirect-y.png";
 import redirectB from "../../../../assets/icons/redirect-b.png";
-import { p } from "motion/react-client";
 
 type Event = {
   title: string
@@ -43,7 +42,7 @@ function Event() {
 
         setEvent(data)
       } catch (error) {
-        setError('Aktuálně nemůžeme zobrazit informace o našich akcích. Zkuste to prosím později.')
+        setError('Informace o aktuálních akcích a soutěžích jsou momentálně nedostupné. Zkuste to prosím později.')
         console.error(error)
       } finally {
         setLoading(false)
@@ -75,9 +74,31 @@ function Event() {
         <div className="flex flex-col px-5 xxs:px-10 xs:px-15 sm:px-20 lg:flex-row lg:justify-center gap-10 border w-fit border-l-0 border-r-0 py-5 border-[#F5F0E6]/40">
 
           {loading ?
-            <p className="text-[#FFFDF8]">Načítání…</p> :
+            <>
+              <div className="flex min-h-[150px] min-w-[230px] flex-col items-center justify-center gap-4">
+                <div className="h-6 w-6  animate-spin rounded-full border-3 border-[#FFFDF8]/20 border-t-[#FFFDF8]" />
 
-            error ? <div className="text-[#FFFDF8]">{error}</div> :
+                <p className="font-[Bree_serif] text-sm text-[#FFFDF8]/70">
+                  Načítání události...
+                </p>
+              </div>
+            </> :
+
+            error ?
+              <>
+                <div
+                  role="alert"
+                  className="flex py-10 flex-col items-center justify-center gap-3 px-5 text-center"
+                >
+                  <h3 className="font-[Bree_serif] text-xl text-[#FFFDF8]">
+                    Události se nepodařilo načíst
+                  </h3>
+
+                  <p className="max-w-md text-sm leading-relaxed text-[#FFFDF8]/70">
+                    {error}
+                  </p>
+                </div>
+              </> :
 
               !event ?
                 <div className="text-[#FFFDF8] flex flex-col gap-4 py-4">

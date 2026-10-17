@@ -103,8 +103,8 @@ function Navbar() {
                     </div>
 
                   </Link>
-                  <button className="cursor-pointer" >
-                    <img src={closeMenu} alt="" className="w-[30px] h-[30px] rounded-[50%] object-cover" onClick={handleMenu} />
+                  <button className="cursor-pointer" onClick={handleMenu} >
+                    <img src={closeMenu} alt="" className="w-[30px] h-[30px] rounded-[50%] object-cover" />
                   </button>
                 </div>
 

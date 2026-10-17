@@ -13,16 +13,16 @@ function Navbar() {
 
   const FACEBOOK_QUERY = `*[_type == "contact"][0].facebookUrl`;
 
-  const [facebookUrl, setFacebookUrl] = useState<string | undefined>(undefined);
+  const [facebookUrl, setFacebookUrl] = useState<string | null>(null);
 
   useEffect(() => {
     async function getFacebookUrl() {
       try {
-        setFacebookUrl(undefined)
-        const url = await client.fetch<string | undefined>(FACEBOOK_QUERY);
+        setFacebookUrl(null)
+        const url = await client.fetch<string | null>(FACEBOOK_QUERY);
         setFacebookUrl(url);
       } catch (error) {
-        setFacebookUrl(undefined)
+        setFacebookUrl(null)
         console.error("Failed to load Facebook URL:", error);
       }
     }
@@ -145,12 +145,11 @@ function Navbar() {
                 </div>
               </div>
 
-              {facebook &&
+              {facebookUrl &&
                 <div className="flex flex-col justify-center  gap-4 py-4">
                   <hr className="text-[#FFFDF8]/40 " />
-                  <a href="https://www.facebook.com/profile.php?id=100093410382349" target="_blank"
-                    rel="noopener noreferrer" className="flex items-center justify-center border border-[#FFFDF8]/40 rounded-3xl gap-1 text-[#FFFDF8] mx-auto px-4 py-[3px] ">
-                    <img src={facebookUrl} alt="facebook" className="w-[30px] h-[30px]" />
+                  <a href={facebookUrl} className="flex items-center justify-center border border-[#FFFDF8]/40 rounded-3xl gap-1 text-[#FFFDF8] mx-auto px-4 py-[3px] ">
+                    <img src={facebook} alt="facebook" className="w-[30px] h-[30px]" />
                     <span className="w-[70px]">Facebook</span>
                   </a>
                 </div>

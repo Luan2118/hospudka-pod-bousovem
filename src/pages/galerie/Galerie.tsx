@@ -1,5 +1,5 @@
-import Xbutton from "../../assets/icons/Xbutton.png"
-import imageArrow from "../../assets/icons/imageArrow.png"
+import Xbutton from "../../assets/icons/Xbutton.webp"
+import imageArrow from "../../assets/icons/imageArrow.webp"
 import { useRef, useState, useEffect } from "react"
 import { motion } from "motion/react"
 import { client } from "../../sanity/sanityClient"

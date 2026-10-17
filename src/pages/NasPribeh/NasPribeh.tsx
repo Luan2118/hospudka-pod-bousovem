@@ -1,6 +1,6 @@
-import hospodaZacatek1 from "../../assets/images/hospoda-zacatek-1.png";
-import hospodaZacatek2 from "../../assets/images/hospoda-zacatek-2.png";
-import hospodaZacatek3 from "../../assets/images/hospoda-zacatek-3.png";
+import hospodaZacatek1 from "../../assets/images/hospoda-zacatek-1.webp";
+import hospodaZacatek2 from "../../assets/images/hospoda-zacatek-2.webp";
+import hospodaZacatek3 from "../../assets/images/hospoda-zacatek-3.webp";
 import StorySection from "./components/StorySection";
 import { motion } from "motion/react";
 

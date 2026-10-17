@@ -1,10 +1,10 @@
 import { Link, useLocation } from "react-router";
 import hospudkaLogo from "../../assets/images/hospudka-logo.png"
 import NavLink from "./components/Navlink";
-import blackMenu from "../../assets/icons/black-menu.png"
-import closeMenu from "../../assets/icons/close-menu.png"
+import blackMenu from "../../assets/icons/black-menu.webp"
+import closeMenu from "../../assets/icons/close-menu.webp"
 import { useState, useEffect } from "react";
-import facebook from "../../assets/icons/facebook-w.png"
+import facebook from "../../assets/icons/facebook-w.webp"
 import { AnimatePresence, motion } from "motion/react";
 import { client } from "../../sanity/sanityClient";
 

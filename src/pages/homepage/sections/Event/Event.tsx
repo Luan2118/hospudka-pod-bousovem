@@ -1,11 +1,11 @@
-import dateIcon from "../../../../assets/icons/date.png"
+import dateIcon from "../../../../assets/icons/date.webp"
 import { motion } from "motion/react"
 import { useEffect, useState } from "react"
 import { client } from "../../../../sanity/sanityClient"
-import facebookY from "../../../../assets/icons/facebook-y.png";
-import facebookB from "../../../../assets/icons/facebook-b.png";
-import redirectY from "../../../../assets/icons/redirect-y.png";
-import redirectB from "../../../../assets/icons/redirect-b.png";
+import facebookY from "../../../../assets/icons/facebook-y.webp";
+import facebookB from "../../../../assets/icons/facebook-b.webp";
+import redirectY from "../../../../assets/icons/redirect-y.webp";
+import redirectB from "../../../../assets/icons/redirect-b.webp";
 
 type Event = {
   title: string

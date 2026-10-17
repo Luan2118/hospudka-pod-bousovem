@@ -1,16 +1,16 @@
 import hospodaLogo from "../../assets/images/hospudka-logo.png";
-import location from "../../assets/icons/location.png";
-import locationW from "../../assets/icons/location-w.png";
-import tel from "../../assets/icons/tel.png";
-import telW from "../../assets/icons/tel-w.png";
-import email from "../../assets/icons/email.png";
-import emailW from "../../assets/icons/email-w.png";
-import facebook from "../../assets/icons/facebook.png";
-import facebookW from "../../assets/icons/facebook-w.png";
+import location from "../../assets/icons/location.webp";
+import locationW from "../../assets/icons/location-w.webp";
+import tel from "../../assets/icons/tel.webp";
+import telW from "../../assets/icons/tel-w.webp";
+import email from "../../assets/icons/email.webp";
+import emailW from "../../assets/icons/email-w.webp";
+import facebook from "../../assets/icons/facebook.webp";
+import facebookW from "../../assets/icons/facebook-w.webp";
 import ContactItem from "./components/ContactItem";
 import OpeningHours from "./components/OpeningHours";
-import payment from "../../assets/images/payment.png"
-import paymentB from "../../assets/images/payment-brown.png"
+import payment from "../../assets/images/payment.webp"
+import paymentB from "../../assets/images/payment-brown.webp"
 import { useLocation } from "react-router";
 import { useEffect, useState } from "react";
 import { client } from "../../sanity/sanityClient";

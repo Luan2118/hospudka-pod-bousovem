@@ -10,13 +10,13 @@ function NasPribeh() {
 
       <div className="flex flex-col justify-center items-center gap-4">
         <div className="overflow-hidden">
-          <motion.p
+          <motion.h1
             initial={{ opacity: 0, y: '100%' }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-5xl leading-[1.2]">
             Náš příběh
-          </motion.p>
+          </motion.h1>
         </div>
 
         <div className="overflow-hidden">

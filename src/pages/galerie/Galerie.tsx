@@ -93,13 +93,13 @@ function Galerie() {
   return (
     <div className={"px-5 md:px-20 xl:px-40 2xl:px-80 py-30 flex flex-col gap-10  bg-[#F5F0E6]"}>
       <div className="overflow-hidden">
-        <motion.h2
+        <motion.h1
           initial={{ opacity: 0, y: '100%' }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-5xl font-[Bree_serif] text-[#2B241F]">
           Galerie
-        </motion.h2>
+        </motion.h1>
       </div>
 
       {loading ? (

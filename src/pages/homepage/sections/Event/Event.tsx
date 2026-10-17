@@ -59,24 +59,24 @@ function Event() {
     <section id="akce" className="bg-[#38271F] font-[Bree_serif] py-10 flex flex-col items-center">
 
       <div className="px-5">
-        <header className="text-[#FFFDF8]/80 flex flex-col gap-4 mb-5">
+        <header className="flex flex-col gap-4 mb-4">
           <motion.h2
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="text-base xl:text-lg">
-            Na co se můžete těšit
+            className="flex items-center gap-3 text-sm xl:text-base uppercase tracking-[0.12em] text-[#D9A441] px-2">
+            Akce a soutěže u nás
           </motion.h2>
         </header>
 
 
-        <div className="flex flex-col px-5 xxs:px-10 xs:px-15 sm:px-20 lg:flex-row lg:justify-center gap-10 border w-fit border-l-0 border-r-0 py-5 border-[#F5F0E6]/40">
+        <div className="flex flex-col px-5 xxs:px-10 xs:px-15 sm:px-20 lg:flex-row lg:justify-center gap-10 border w-fit border-l-0 border-r-0 py-5 border-[#D9A441]/25">
 
           {loading ?
             <>
               <div className="flex min-h-[150px] min-w-[230px] flex-col items-center justify-center gap-4">
-                <div className="h-6 w-6  animate-spin rounded-full border-3 border-[#FFFDF8]/20 border-t-[#FFFDF8]" />
+                <div className="h-6 w-6 animate-spin rounded-full border-3 border-[#D9A441]/20 border-t-[#D9A441]" />
 
                 <p className="font-[Bree_serif] text-sm text-[#FFFDF8]/70">
                   Načítání události...
@@ -177,12 +177,12 @@ function Event() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
-                      className="flex items-center gap-5">
-                      <img src={dateIcon} alt="" className="w-[35px] h-[35px]" />
-                      <div className="text-[#D9A441] text-base flex gap-2">
+                      className="flex w-fit max-w-full items-center gap-2 sm:gap-3   px-3 ">
+                      <img src={dateIcon} alt="" className="w-[28px] h-[28px] shrink-0" />
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm sm:text-base text-[#D9A441] ">
                         <span>{eventDate}</span>
-                        <span>|</span>
-                        <span> OD {event.time}</span>
+                        <span aria-hidden="true" className="text-[#D9A441]/50">•</span>
+                        <span>od {event.time}</span>
                       </div>
                     </motion.div>
 
@@ -192,7 +192,7 @@ function Event() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-                        className="text-3xl lg:text-4xl text-[#FFFDF8]">
+                        className="text-3xl lg:text-4xl  text-[#FFFDF8]">
                         {event?.title}
                       </motion.p>
                     </div>
@@ -202,7 +202,7 @@ function Event() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
-                      className="text-xs lg:text-sm max-w-[500px] text-[#FFFDF8]/90 leading-[2]">
+                      className="text-sm lg:text-base max-w-[500px] text-[#FFFDF8]/90 leading-relaxed">
                       {event?.description}
                     </motion.p>
 

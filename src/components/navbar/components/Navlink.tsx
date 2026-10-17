@@ -22,7 +22,7 @@ function NavLink({ children, link }: NavLinkProps) {
     window.scrollTo(0, 0)
   }
 
-  const hrClassName = `w-full opacity-0 scale-x-0 origin-left group-hover:opacity-60   group-hover:scale-x-100 transition-transform duration-400 ease-out`
+  const hrClassName = `hidden lg:block w-full opacity-0 scale-x-0 origin-left group-hover:opacity-60 group-hover:scale-x-100 transition-transform duration-400 ease-out`
 
   if (pathname !== '/' && link === 'menu' || link === 'hero') {
     return (

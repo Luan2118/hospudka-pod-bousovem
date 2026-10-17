@@ -12,10 +12,119 @@ import OpeningHours from "./components/OpeningHours";
 import payment from "../../assets/images/payment.png"
 import paymentB from "../../assets/images/payment-brown.png"
 import { useLocation } from "react-router";
+import { useEffect, useState } from "react";
+import { client } from "../../sanity/sanityClient";
+
+
+
+type OpeningDay = {
+  closed: boolean;
+  openingTime?: string;
+  closingTime?: string;
+};
+
+type OpeningHoursData = Record<string, OpeningDay | null>;
+
+type ContactData = {
+  phoneNumber: string;
+  email: string;
+  facebookUrl: string | null;
+};
+
+
+const CONTACT_QUERY = `
+  *[_type == "contacts"][0] {
+    phoneNumber,
+    email,
+    facebookUrl
+  }
+`;
+
+const OPENING_HOURS_QUERY = `
+  *[_type == "openingHours"][0] {
+    monday,
+    tuesday,
+    wednesday,
+    thursday,
+    friday,
+    saturday,
+    sunday
+  }
+`;
+
 
 function Contact() {
 
   const { pathname } = useLocation();
+
+  // opening hours
+  const [openingHours, setOpeningHours] = useState<OpeningHoursData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // contact
+  const [contact, setContact] = useState<ContactData | null>(null);
+  const [contactLoading, setContactLoading] = useState(true);
+  const [contactError, setContactError] = useState<string | null>(null);
+
+  // fetch opening hours
+  useEffect(() => {
+    async function getOpeningHours() {
+      try {
+        setLoading(true);
+        setError(null);
+        const data = await client.fetch<OpeningHoursData | null>(
+          OPENING_HOURS_QUERY
+        );
+
+        setOpeningHours(data);
+      } catch (error) {
+        setError("Otevírací dobu se nepodařilo načíst.");
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    getOpeningHours();
+  }, []);
+
+  const days = [
+    { key: "monday", name: "Pondělí" },
+    { key: "tuesday", name: "Úterý" },
+    { key: "wednesday", name: "Středa" },
+    { key: "thursday", name: "Čtvrtek" },
+    { key: "friday", name: "Pátek" },
+    { key: "saturday", name: "Sobota" },
+    { key: "sunday", name: "Neděle" },
+  ]
+
+
+  //fetch contact
+
+  useEffect(() => {
+    async function getContact() {
+      try {
+        setContactLoading(true);
+        setContactError(null);
+
+        const data = await client.fetch<ContactData | null>(CONTACT_QUERY);
+
+        setContact(data);
+      } catch (error) {
+        setContactError(
+          "Kontaktní údaje se nepodařilo načíst."
+        );
+
+        console.error(error);
+      } finally {
+        setContactLoading(false);
+      }
+    }
+
+    getContact();
+  }, []);
+
 
   return (
     <section id="kontakt"
@@ -33,12 +142,61 @@ function Contact() {
           </div>
         </div>
 
-        <ContactItem link="https://www.google.com/maps/place/Hosp%C5%AFdka+pod+Bou%C5%A1ovem/@49.604691,13.0426129,17z/data=!3m1!4b1!4m6!3m5!1s0x470abd006c185285:0xc9abed05071997f5!8m2!3d49.604691!4d13.0426129!16s%2Fg%2F11w240fq87!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D"  src={pathname !== '/'  ? locationW : location}>č.p 1, 345 62 Všekary-Holýšov</ContactItem>
+        <ContactItem link="https://www.google.com/maps/place/Hosp%C5%AFdka+pod+Bou%C5%A1ovem/@49.604691,13.0426129,17z/data=!3m1!4b1!4m6!3m5!1s0x470abd006c185285:0xc9abed05071997f5!8m2!3d49.604691!4d13.0426129!16s%2Fg%2F11w240fq87!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D" src={pathname !== '/' ? locationW : location}>č.p 1, 345 62 Všekary-Holýšov</ContactItem>
 
-        <ContactItem link="tel:+420606536633" src={pathname !== '/'  ? telW : tel}>606 536 633</ContactItem>
+        {contactLoading ? (
+          <div
+            role="status"
+            className="flex min-h-[120px] w-fit flex-col items-center justify-center gap-3 text-center px-3"
+          >
+            <p className="text-sm opacity-70">
+              Načítání kontaktních údajů…
+            </p>
+          </div>
+        ) : contactError ? (
+          <div
+            role="alert"
+            className="flex min-h-[120px] w-fit flex-col items-center justify-center px-3 text-center"
+          >
+            <p className="text-sm opacity-70">
+              {contactError}
+            </p>
+          </div>
+        ) : !contact ? (
+          <div
+            role="alert"
+            className="flex min-h-[120px] w-fit flex-col items-center justify-center px-3 text-center"
+          >
+            <p className="text-sm opacity-70">
+              Kontaktní údaje nejsou momentálně dostupné.
+            </p>
+          </div>
+        ) : (
+          <>
+            <ContactItem
+              link={`tel:${contact.phoneNumber.replace(/\s/g, "")}`}
+              src={pathname !== "/" ? telW : tel}
+            >
+              {contact.phoneNumber}
+            </ContactItem>
 
-        <ContactItem link="mailto:hospudkapodbousovem@email.cz" src={pathname !== '/'  ? emailW : email}>hospudkapodbousovem@email.cz</ContactItem>
-        <ContactItem link="https://www.facebook.com/profile.php?id=100093410382349" src={pathname !== '/'  ? facebookW : facebook}>Facebook</ContactItem>
+            <ContactItem
+              link={`mailto:${contact.email}`}
+              src={pathname !== "/" ? emailW : email}
+            >
+              {contact.email}
+            </ContactItem>
+
+            {contact.facebookUrl && (
+              <ContactItem
+                link={contact.facebookUrl}
+                src={pathname !== "/" ? facebookW : facebook}
+              >
+                Facebook
+              </ContactItem>
+            )}
+          </>
+        )}
 
         <hr className={`my-4 max-w-[400px] ${pathname !== '/' ? 'text-[#FFFDF8]/20' : 'text-[#2B241F]/20'}`} />
 
@@ -60,22 +218,47 @@ function Contact() {
 
 
       <div className={`flex flex-col gap-4 md:gap-6  pt-5 max-w-[320px]  ${pathname !== '/' ? 'xl:border-[#FFFDF8]/20' : 'xl:border-[#2B241F]/20'}`}>
-        <p className="text-lg 2xl:text-xl tracking-wide text-center">Otevírací doba</p>
+
 
         <div className="flex flex-col gap-3 md:gap-4">
-          <OpeningHours closed={true} pathname={pathname}>Pondělí</OpeningHours>
-          <OpeningHours openingHour="14:00" closingHour="18:30" closed={false} pathname={pathname}>Úterý</OpeningHours>
-          <OpeningHours openingHour="14:00" closingHour="18:30" closed={false} pathname={pathname}>Středa</OpeningHours>
-          <OpeningHours openingHour="14:00" closingHour="18:30" closed={false} pathname={pathname}>Čtvrtek</OpeningHours>
-          <OpeningHours openingHour="14:00" closingHour="18:30" closed={false} pathname={pathname}>Pátek</OpeningHours>
-          <OpeningHours openingHour="14:00" closingHour="23:30" closed={false} pathname={pathname}>Sobota</OpeningHours>
-          <OpeningHours openingHour="14:00" closingHour="18:30" closed={false} pathname={pathname}>Neděle</OpeningHours>
+          {loading ? (
+            <p className="text-sm text-center opacity-70 py-5">
+              Načítání otevírací doby…
+            </p>
+          ) : error ? (
+            <p role="alert" className="text-sm text-center opacity-70 py-5">
+              {error}
+            </p>
+          ) : !openingHours ? (
+            <p className="text-sm text-center opacity-70">
+              Otevírací doba není momentálně dostupná.
+            </p>
+          ) : (
+            <>
+              <p className="text-lg 2xl:text-xl tracking-wide text-center">Otevírací doba</p>
+              {days.map(({ key, name }) => {
+                const hours = openingHours[key];
+
+                return (
+                  <OpeningHours
+                    key={key}
+                    openingHour={hours?.openingTime}
+                    closingHour={hours?.closingTime}
+                    closed={hours?.closed ?? true}
+                    pathname={pathname}
+                  >
+                    {name}
+                  </OpeningHours>
+                );
+              })}
+            </>
+          )}
         </div>
       </div>
 
 
       <div className="flex flex-col gap-2 w-full md:col-span-2 xl:col-span-1">
-        <img src={pathname !== '/'  ? paymentB : payment} alt="" className="max-w-[450px] 3xl:max-w-[500px] max-h-[200px]" />
+        <img src={pathname !== '/' ? paymentB : payment} alt="" className="max-w-[450px] 3xl:max-w-[500px] max-h-[200px]" />
 
         <div>
           <p className="text-xl mb-4">Mapa</p>

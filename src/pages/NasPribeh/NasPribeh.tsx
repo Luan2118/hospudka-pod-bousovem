@@ -34,25 +34,18 @@ function NasPribeh() {
       <div>
         <StorySection
           title="Všechno začalo jedním domem"
-          description="V roce
-              jejím vlastnictví zůstal až do roku 1981, kdy byl prodán chalupářům z Prahy.
-              Dům tehdy nebyl v nejlepším stavu, a tak jsme stáli před zásadním rozhodnutím – zbourat ho, nebo mu dát nový smysl?
-              Odpověď přišla nečekaně během pandemie covidu. Všimli jsme si, kolik lidí prochází naší vesnicí při výletech do lesa a okolí. Právě tehdy se zrodila myšlenka vytvořit zde malé občerstvení, kde by se kolemjdoucí mohli zastavit a odpočinout si."
+          description="V roce 2018 jsme odkoupili zpět dům č. p. 1 ve Všekarech, který naší rodině patřil už od poloviny 19. století. V roce 1981 jej však rodina prodala chalupářům z Prahy. Když se dům po letech vrátil do našich rukou, nebyl zrovna v nejlepším stavu. Stáli jsme tak před rozhodnutím, zda ho zbourat, nebo mu dát nový život."
           image={hospodaZacatek1} />
 
 
         <StorySection
           title="Od nápadu ke skutečnosti"
-          description="Nechali jsme zpracovat projekt a v březnu roku 2020 se pustili do rekonstrukce. Z původního domu nakonec zůstaly pouze obvodové stěny a střecha. Už na podzim téhož roku však byla rekonstrukce dokončena.
-              Následující tři roky jsme se zde o víkendech scházeli s kamarády, kteří nás od samého začátku podporovali.
-              9. června 2023 jsme po získání všech potřebných povolení konečně oficiálně otevřeli Hospůdku pod Boušovem."
+          description="V rozhodování nám nakonec pomohla pandemie covidu. V době, kdy bylo cestování omezené, jsme si začali všímat, kolik lidí prochází naší obcí na výlety do lesa a okolní přírody. Tehdy se zrodila myšlenka proměnit starý dům v malé občerstvení nebo bistro. Nechali jsme zpracovat projekt a v březnu roku 2020 se pustili do rekonstrukce. Z původního domu zůstaly pouze obvodové stěny a střecha. Už na podzim téhož roku bylo hotovo. Následující tři roky jsme se zde o víkendech scházeli s přáteli, kteří nás od začátku podporovali. Dne 9. června 2023 jsme po získání všech potřebných povolení Hospůdku pod Boušovem oficiálně otevřeli."
           image={hospodaZacatek2} />
 
         <StorySection
           title="Hospůdka dnes"
-          description="Nechali jsme zpracovat projekt a v březnu roku 2020 se pustili do rekonstrukce. Z původního domu nakonec zůstaly pouze obvodové stěny a střecha. Už na podzim téhož roku však byla rekonstrukce dokončena.
-              Následující tři roky jsme se zde o víkendech scházeli s kamarády, kteří nás od samého začátku podporovali.
-              9. června 2023 jsme po získání všech potřebných povolení konečně oficiálně otevřeli Hospůdku pod Boušovem."
+          description="Začínali jsme skromně, s pouhými třemi slunečníky. Postupně se ale naše hospůdka rozrůstala. V roce 2024 jsme vybudovali pergolu a o rok později zastřešili také prostor nad vchodem. A proč právě Hospůdka pod Boušovem? Svůj název získala podle nedalekého kopce Boušov, který se nachází nad obcí Všekary a nabízí krásný výhled do okolní krajiny."
           image={hospodaZacatek3} />
 
       </div>

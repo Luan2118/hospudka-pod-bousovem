@@ -8,7 +8,7 @@ type StorySection = {
 
 function StorySection({ title, description, image }: StorySection) {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-20 mt-5">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-20 mt-5">
 
       {title === 'Od nápadu ke skutečnosti' ?
         <>
@@ -19,7 +19,7 @@ function StorySection({ title, description, image }: StorySection) {
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
             src={image}
             alt=""
-            className="w-full rounded-md order-2 lg:order-1" />
+            className="w-[90%] h-auto place-self-center rounded-md order-2 lg:order-1" />
           <div className="flex flex-col gap-6 my-auto xl:px-12 order-1 lg:order-2">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -67,7 +67,7 @@ function StorySection({ title, description, image }: StorySection) {
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
             src={image}
             alt=""
-            className="w-full rounded-md" />
+            className="w-[90%] h-auto place-self-center rounded-md" />
         </>
       }
 

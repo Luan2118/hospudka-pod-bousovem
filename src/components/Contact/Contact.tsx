@@ -228,7 +228,7 @@ function Contact() {
       </div>
 
 
-      <div className={`flex flex-col gap-4 md:gap-6  pt-5 max-w-[320px]  ${pathname !== '/' ? 'xl:border-[#FFFDF8]/20' : 'xl:border-[#2B241F]/20'}`}>
+      <div className={`flex flex-col gap-4 md:gap-6  pt-5 max-w-[300px]  ${pathname !== '/' ? 'xl:border-[#FFFDF8]/20' : 'xl:border-[#2B241F]/20'}`}>
 
 
         <div className="flex flex-col gap-3 md:gap-4">
@@ -246,7 +246,7 @@ function Contact() {
             </p>
           ) : (
             <>
-              <p className="text-lg 2xl:text-xl tracking-wide text-center">Otevírací doba</p>
+              <p className="text-lg 2xl:text-xl tracking-wide text-center mb-1">Otevírací doba</p>
               {days.map(({ key, name }) => {
                 const hours = openingHours[key];
 

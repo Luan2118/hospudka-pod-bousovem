@@ -116,18 +116,9 @@ function Galerie() {
       </div>
 
       {loading ? (
-        <div
-          role="status"
-          className="columns-1 md:columns-2 lg:columns-3 gap-6"
-        >
-          <span className="sr-only">Načítání galerie...</span>
+        <div className="flex flex-col items-center justify-center text-center py-25 gap-4 font-[Bree_serif] text-[#2B241F]">
 
-          {["h-64", "h-80", "h-56", "h-72", "h-60", "h-80"].map((height, index) => (
-            <div
-              key={index}
-              className={`${height} bg-[#E5DDD0] rounded-3xl mb-4 break-inside-avoid animate-pulse`}
-            />
-          ))}
+          <div className="h-6 w-6  animate-spin rounded-full border-3 border-[#FFFDF8]/20 border-t-[#FFFDF8]" />
         </div>
 
       ) : error ? (

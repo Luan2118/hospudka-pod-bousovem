@@ -19,7 +19,7 @@ type Event = {
 function Event() {
 
   const [event, setEvent] = useState<Event | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
 

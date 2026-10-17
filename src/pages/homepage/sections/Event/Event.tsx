@@ -6,6 +6,7 @@ import facebookY from "../../../../assets/icons/facebook-y.png";
 import facebookB from "../../../../assets/icons/facebook-b.png";
 import redirectY from "../../../../assets/icons/redirect-y.png";
 import redirectB from "../../../../assets/icons/redirect-b.png";
+import { p } from "motion/react-client";
 
 type Event = {
   title: string
@@ -19,6 +20,8 @@ type Event = {
 function Event() {
 
   const [event, setEvent] = useState<Event | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
 
   const POST_QUERY = `*[_type == "event"][0] {
@@ -33,13 +36,25 @@ function Event() {
   useEffect(() => {
 
     async function getEvent() {
-      const data: Event = await client.fetch(POST_QUERY);
+      try {
+        setLoading(true)
+        setError(null)
+        const data: Event = await client.fetch(POST_QUERY);
 
-      setEvent(data)
+        setEvent(data)
+      } catch (error) {
+        setError('Aktuálně nemůžeme zobrazit informace o našich akcích. Zkuste to prosím později.')
+        console.error(error)
+      } finally {
+        setLoading(false)
+      }
+
     }
 
     getEvent();
   }, [])
+
+  const eventDate = new Date(`${event?.date}T00:00:00`).toLocaleDateString("cs-CZ")
 
   return (
     <section id="akce" className="bg-[#38271F] font-[Bree_serif] py-10 flex flex-col items-center">
@@ -59,123 +74,129 @@ function Event() {
 
         <div className="flex flex-col px-5 xxs:px-10 xs:px-15 sm:px-20 lg:flex-row lg:justify-center gap-10 border w-fit border-l-0 border-r-0 py-5 border-[#F5F0E6]/40">
 
-          {!event ?
-            <div className="text-[#FFFDF8] flex flex-col gap-4 py-4">
+          {loading ?
+            <p className="text-[#FFFDF8]">Načítání…</p> :
 
-              <div className="text-2xl lg:text-3xl text-center">Momentálně neplánujeme žádnou akci ani soutěž.</div>
+            error ? <div className="text-[#FFFDF8]">{error}</div> :
 
-              <div className="text-[#FFFDF8]/70 text-center text-sm">O dalších akcích a novinkách vás budeme informovat na našem Facebooku</div>
+              !event ?
+                <div className="text-[#FFFDF8] flex flex-col gap-4 py-4">
 
-              <motion.a
-                href="https://www.facebook.com/profile.php?id=100093410382349"
-                target="_blank"
-                rel="noopener noreferrer"
-                initial="initial"
-                whileHover="hover"
-                className="group relative overflow-hidden border border-[#D9A441] rounded-xl w-fit self-center py-2 px-4 mt-3 cursor-pointer"
-              >
-                <motion.span
-                  aria-hidden="true"
-                  variants={{
-                    initial: { y: "-100%" },
-                    hover: { y: "0%" },
-                  }}
-                  transition={{
-                    duration: 0.35,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute inset-0 bg-[#D9A441]"
-                />
+                  <div className="text-2xl lg:text-3xl text-center">Momentálně neplánujeme žádnou akci ani soutěž.</div>
 
-                <motion.span
-                  variants={{
-                    initial: { color: "#D9A441" },
-                    hover: { color: "#3E2818" },
-                  }}
-                  transition={{ duration: 0.25 }}
-                  className="relative z-10 flex items-center gap-2 text-xs sm:text-sm"
-                >
+                  <div className="text-[#FFFDF8]/70 text-center text-sm">O dalších akcích a novinkách vás budeme informovat na našem Facebooku</div>
 
-                  <span className="relative h-5 w-5">
-                    <img
-                      src={facebookY}
-                      alt=""
-                      className="absolute inset-0 w-5 transition-opacity duration-300 group-hover:opacity-0"
+                  <motion.a
+                    href="https://www.facebook.com/profile.php?id=100093410382349"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial="initial"
+                    whileHover="hover"
+                    className="group relative overflow-hidden border border-[#D9A441] rounded-xl w-fit self-center py-2 px-4 mt-3 cursor-pointer"
+                  >
+                    <motion.span
+                      aria-hidden="true"
+                      variants={{
+                        initial: { y: "-100%" },
+                        hover: { y: "0%" },
+                      }}
+                      transition={{
+                        duration: 0.35,
+                        ease: "easeInOut",
+                      }}
+                      className="absolute inset-0 bg-[#D9A441]"
                     />
 
-                    <img
-                      src={facebookB}
-                      alt=""
-                      className="absolute inset-0 w-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                    />
-                  </span>
+                    <motion.span
+                      variants={{
+                        initial: { color: "#D9A441" },
+                        hover: { color: "#3E2818" },
+                      }}
+                      transition={{ duration: 0.25 }}
+                      className="relative z-10 flex items-center gap-2 text-xs sm:text-sm"
+                    >
 
-                  Sledujte nás na Facebooku
+                      <span className="relative h-5 w-5">
+                        <img
+                          src={facebookY}
+                          alt=""
+                          className="absolute inset-0 w-5 transition-opacity duration-300 group-hover:opacity-0"
+                        />
 
-                  <span className="relative w-5 h-5">
-                    <img
-                      src={redirectY}
-                      alt=""
-                      className="absolute inset-0  transition-opacity duration-300 group-hover:opacity-0"
-                    />
+                        <img
+                          src={facebookB}
+                          alt=""
+                          className="absolute inset-0 w-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                        />
+                      </span>
 
-                    <img
-                      src={redirectB}
-                      alt=""
-                      className="absolute inset-0  opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                    />
-                  </span>
-                </motion.span>
-              </motion.a>
+                      Sledujte nás na Facebooku
 
-            </div>
-            : <>
-              <div className="flex flex-col gap-4 my-auto mx-auto lg:mx-0">
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
-                  className="flex items-center gap-5">
-                  <img src={dateIcon} alt="" className="w-[35px] h-[35px]" />
-                  <div className="text-[#D9A441] text-base flex gap-2">
-                    <span>{event.date}</span>
-                    <span>|</span>
-                    <span> OD {event.time}</span>
-                  </div>
-                </motion.div>
+                      <span className="relative w-5 h-5">
+                        <img
+                          src={redirectY}
+                          alt=""
+                          className="absolute inset-0  transition-opacity duration-300 group-hover:opacity-0"
+                        />
 
-                <div className="overflow-hidden">
-                  <motion.p
-                    initial={{ opacity: 0, y: '100%' }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-                    className="text-3xl lg:text-4xl text-[#FFFDF8]">
-                    {event?.title}
-                  </motion.p>
+                        <img
+                          src={redirectB}
+                          alt=""
+                          className="absolute inset-0  opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                        />
+                      </span>
+                    </motion.span>
+                  </motion.a>
+
                 </div>
+                : <>
+                  <div className="flex flex-col gap-4 my-auto mx-auto lg:mx-0">
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
+                      className="flex items-center gap-5">
+                      <img src={dateIcon} alt="" className="w-[35px] h-[35px]" />
+                      <div className="text-[#D9A441] text-base flex gap-2">
+                        <span>{eventDate}</span>
+                        <span>|</span>
+                        <span> OD {event.time}</span>
+                      </div>
+                    </motion.div>
 
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
-                  className="text-xs lg:text-sm max-w-[500px] text-[#FFFDF8]/90 leading-[2]">
-                  {event?.description}
-                </motion.p>
+                    <div className="overflow-hidden">
+                      <motion.p
+                        initial={{ opacity: 0, y: '100%' }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+                        className="text-3xl lg:text-4xl text-[#FFFDF8]">
+                        {event?.title}
+                      </motion.p>
+                    </div>
 
-              </div>
+                    <motion.p
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
+                      className="text-xs lg:text-sm max-w-[500px] text-[#FFFDF8]/90 leading-[2]">
+                      {event?.description}
+                    </motion.p>
 
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-              >
-                <img src={event.imageUrl} alt={event.imageAlt} className=" object-contain border border-[#D9A441]/70 max-h-[300px] mx-auto lg:mx-0" />
-              </motion.div>
-            </>
+                  </div>
+
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                  >
+                    <img src={event.imageUrl} alt={event.imageAlt} className=" object-contain border border-[#D9A441]/70 max-h-[300px] mx-auto lg:mx-0" />
+                  </motion.div>
+                </>
+
           }
         </div>
 

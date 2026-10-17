@@ -166,13 +166,13 @@ function Galerie() {
         </button>
 
         <button className="w-[45px] fixed self-start bottom-[50%] rotate-180 cursor-pointer" onClick={showPrevImg}>
-          <img src={imageArrow} alt="" />
+          <img src={imageArrow} alt="Zobrait předchozí fotku" />
         </button>
 
         <img src={dialogImage?.asset.url} alt={dialogImage?.alt} className=" max-h-[80vh] max-w-[90vw]  w-auto h-auto fixed" />
 
         <button className="w-[45px] fixed self-end bottom-[50%] cursor-pointer" onClick={showNextImg}>
-          <img src={imageArrow} alt="" />
+          <img src={imageArrow} alt="Zobrait následujicí fotku" />
         </button>
 
       </dialog>

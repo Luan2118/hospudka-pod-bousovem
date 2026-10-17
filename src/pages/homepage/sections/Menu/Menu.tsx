@@ -30,13 +30,18 @@ function Menu() {
       description,
       weight,
       diameter,
+      volume,
+      secondaryVolume,
+      secondaryPrice
     }
   }`
 
+  
   const [menu, setMenu] = useState<MenuCategory[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
+  
+  console.log(menu)
   useEffect(() => {
 
     async function getMenu() {

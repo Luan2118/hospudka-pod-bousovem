@@ -1,5 +1,5 @@
 export type MenuItem = {
-  id: string;
+  _id: string;
   title: string;
   price: number | null;
 
@@ -32,7 +32,7 @@ function MenuCategory({ data }: MenuCategoryProps) {
       <div className={`grid grid grid-cols-1 md:gap-x-10 gap-y-6  ${data.items.length >= 6 ? 'md:grid-cols-2' : null}`}>
         {data.items.map((menuItem) => {
           return (
-            <div key={menuItem.id} className="font-[Merriweather] flex flex-col gap-1 text-lg font-semibold">
+            <div key={menuItem._id} className="font-[Merriweather] flex flex-col gap-1 text-lg font-semibold">
               <div className="flex justify-between w-full text-base">
                 <p className="">{menuItem.title}</p>
                 <hr className="grow self-end mb-[5px] mx-[6px]" />

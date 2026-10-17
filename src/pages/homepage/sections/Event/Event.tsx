@@ -12,8 +12,8 @@ type Event = {
   date: string
   time: string
   description: string
-  imageUrl: string
-  imageAlt: string
+  imageUrl?: string
+  imageAlt?: string
 }
 
 function Event() {
@@ -208,13 +208,17 @@ function Event() {
 
                   </div>
 
+
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                   >
-                    <img src={event.imageUrl} alt={event.imageAlt} className=" object-contain border border-[#D9A441]/70 max-h-[300px] mx-auto lg:mx-0" />
+                    {!event.imageUrl ?
+                      null
+                      : <img src={event.imageUrl} alt={event.imageAlt} className=" object-contain border border-[#D9A441]/70 max-h-[300px] mx-auto lg:mx-0" />
+                    }
                   </motion.div>
                 </>
 

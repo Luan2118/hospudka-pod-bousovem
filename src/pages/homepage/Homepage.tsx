@@ -1,6 +1,6 @@
 import Hero from "./sections/Hero/Hero";
 import Menu from "./sections/Menu/Menu";
-import Event from "./sections/Events/Event";
+import Event from "./sections/Event/Event";
 
 function Homepage() {
   return (

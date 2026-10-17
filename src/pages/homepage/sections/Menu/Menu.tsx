@@ -8,7 +8,7 @@ import { client } from "../../../../sanity/sanityClient";
 export type MenuItem = {
   _id: string;
   title: string;
-  price: number | null;
+  price: number;
 
   // 
   description?: string;

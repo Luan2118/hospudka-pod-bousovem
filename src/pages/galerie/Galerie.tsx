@@ -1,21 +1,8 @@
-import klobasa from "../../assets/galerie/klobasa-chleba.png"
-import kure from "../../assets/galerie/kure-chleba.png"
-import pivo from "../../assets/galerie/pivo.png"
-import pohar from "../../assets/galerie/pohar se slehackou.png"
-import udirna from "../../assets/galerie/udirna.png"
-import udirnaRadek from "../../assets/galerie/udirna-radek.png"
-import tomahawk from "../../assets/galerie/tomahawk-steak.png"
-import strudlSoutez from "../../assets/galerie/strudl-soutez.png"
-import masoUdilna from "../../assets/galerie/maso-udirna.png"
-import udirnaRyby from "../../assets/galerie/udirna-ryby.png"
-import roma from "../../assets/galerie/Roma.png"
 import Xbutton from "../../assets/icons/Xbutton.png"
 import imageArrow from "../../assets/icons/imageArrow.png"
 import { useRef, useState, useEffect } from "react"
 import { motion } from "motion/react"
 import { client } from "../../sanity/sanityClient"
-import { image } from "motion/react-client"
-
 
 type GalleryImage = {
   _key: string;

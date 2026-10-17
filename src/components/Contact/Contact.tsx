@@ -33,7 +33,7 @@ type ContactData = {
 
 
 const CONTACT_QUERY = `
-  *[_type == "contacts"][0] {
+  *[_type == "contact"][0] {
     phoneNumber,
     email,
     facebookUrl

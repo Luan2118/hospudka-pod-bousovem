@@ -25,7 +25,7 @@ function StorySection({ title, description, image }: StorySection) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-              className="text-4xl">
+              className="text-4xl text-[#38271F]">
               {title}
             </motion.p>
 
@@ -33,7 +33,7 @@ function StorySection({ title, description, image }: StorySection) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.3, ease: "easeOut" }}
-              className="text-[#2B241F]/80 max-w-[800px]">
+              className="text-[#2B241F] max-w-[800px]">
               {description}
             </motion.p>
           </div>
@@ -46,7 +46,7 @@ function StorySection({ title, description, image }: StorySection) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-              className="text-4xl">
+              className="text-4xl text-[#38271F]">
               {title}
             </motion.p>
 
@@ -55,7 +55,7 @@ function StorySection({ title, description, image }: StorySection) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: 0.3, ease: "easeOut" }}
-              className="text-[#2B241F]/80 max-w-[800px]">
+              className="text-[#2B241F] max-w-[800px]">
               {description}
             </motion.p>
           </div>

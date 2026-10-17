@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 
 function NasPribeh() {
   return (
-    <div id="nas-pribeh" className="flex flex-col font-[Bree_serif] text-[#2B241F] bg-[#F5F0E6] pb-15  pt-[100px] px-5 sm:px-10 gap-10  xl:px-30 2xl:px-60">
+    <div id="nas-pribeh" className="flex flex-col font-[Bree_serif] text-[#2B241F] bg-[#F5F0E6] pb-15  pt-[100px] px-5 sm:px-10 gap-12 md:gap-16 xl:px-30 2xl:px-60">
 
       <div className="flex flex-col justify-center items-center gap-4">
         <div className="overflow-hidden">
@@ -14,7 +14,7 @@ function NasPribeh() {
             initial={{ opacity: 0, y: '100%' }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-5xl leading-[1.2]">
+            className="mt-2 text-5xl leading-[1.2] text-[#38271F]">
             Náš příběh
           </motion.h1>
         </div>

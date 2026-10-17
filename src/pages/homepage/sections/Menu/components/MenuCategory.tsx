@@ -17,7 +17,7 @@ export type MenuItem = {
 
 type MenuCategoryProps = {
   data: {
-    id: string;
+    _id: string;
     title: string;
     items: MenuItem[];
   }

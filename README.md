@@ -49,12 +49,11 @@ npm run lint     # Run ESLint
 ```
 
 ## Content Management
+The website uses Sanity CMS to manage dynamic content. Menu categories, menu items, events, and gallery images are stored in Sanity and fetched through its API.
 
-The website uses **Sanity CMS** to manage dynamic content. Menu categories, menu items, and events are stored in Sanity and fetched through its API.
+The restaurant owner can independently update the menu, manage events, edit contact information and opening hours, and upload photos to the website's gallery through Sanity Studio, without modifying the source code or requiring technical knowledge.
 
-The restaurant owner can independently manage and update the menu, events, contact information, and opening hours through Sanity Studio without modifying the source code or requiring technical knowledge.
-
-The Sanity client is configured in `src/sanity/sanityClient.ts`, using the `production` dataset. Sanity Studio is maintained in a separate repository.
+The Sanity client is configured in src/sanity/sanityClient.ts, using the production dataset. Sanity Studio is maintained in a separate repository.
 
 ## Project Structure
 

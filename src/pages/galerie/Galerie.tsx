@@ -159,7 +159,7 @@ function Galerie() {
         </motion.div>
       )}
 
-      <dialog ref={dialogRef} className="relative w-full h-full bg-transparent overflow-hidden open:flex flex-col items-center pt-20 z-80" >
+      <dialog onClose={() => setImgIndex(null)} ref={dialogRef} className="relative w-full h-full bg-transparent overflow-hidden open:flex flex-col items-center pt-20 z-80" >
 
         <button onClick={closeDialog} className="w-[45px]  self-end fixed cursor-pointer" >
           <img src={Xbutton} alt="Zavřít fotografii" />

@@ -35,7 +35,7 @@ function Event() {
     async function getEvent() {
       const data: Event = await client.fetch(POST_QUERY);
 
-      setEvent(null)
+      setEvent(data)
     }
 
     getEvent();

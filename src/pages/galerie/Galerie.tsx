@@ -161,7 +161,7 @@ function Galerie() {
 
       <dialog onClose={() => setImgIndex(null)} ref={dialogRef} className="relative w-full h-full bg-transparent overflow-hidden open:flex flex-col items-center pt-20 z-80" >
 
-        <button onClick={closeDialog} className="w-[45px]  self-end fixed cursor-pointer" >
+        <button onClick={closeDialog} className="w-[45px]  self-end fixed cursor-pointer" aria-label="Předchozí fotka">
           <img src={Xbutton} alt="Zavřít fotografii" />
         </button>
 
@@ -171,7 +171,7 @@ function Galerie() {
 
         <img src={dialogImage?.asset.url} alt={dialogImage?.alt} className=" max-h-[80vh] max-w-[90vw]  w-auto h-auto fixed" />
 
-        <button className="w-[45px] fixed self-end bottom-[50%] cursor-pointer" onClick={showNextImg}>
+        <button className="w-[45px] fixed self-end bottom-[50%] cursor-pointer" onClick={showNextImg} aria-label="Následujicí fotka">
           <img src={imageArrow} alt="Zobrait následujicí fotku" />
         </button>
 

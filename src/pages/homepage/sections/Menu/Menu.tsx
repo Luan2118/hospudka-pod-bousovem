@@ -58,7 +58,6 @@ function Menu() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  console.log(menu)
   useEffect(() => {
 
     async function getMenu() {

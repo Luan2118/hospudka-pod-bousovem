@@ -101,7 +101,7 @@ function Galerie() {
           initial={{ opacity: 0, y: '100%' }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-5xl font-[Bree_serif] text-[#2B241F]">
+          className="text-5xl font-[Bree_serif] text-[#38271F]">
           Galerie
         </motion.h1>
       </div>
@@ -115,11 +115,11 @@ function Galerie() {
       ) : error ? (
         <div className="flex flex-col items-center justify-center text-center py-25 gap-4 font-[Bree_serif] text-[#2B241F]">
 
-          <h3 className="text-3xl text-[#2B241F]">
+          <h3 className="text-3xl text-[#38271F]">
             Galerii se nepodařilo načíst
           </h3>
 
-          <p className="text-[#2B241F]/60 max-w-[300px] text-sm">
+          <p className="text-[#2B241F]/70 max-w-[300px] text-sm">
             Při načítání fotografií došlo k chybě. Zkuste to prosím znovu.
           </p>
 
@@ -127,7 +127,7 @@ function Galerie() {
 
       ) : images.length === 0 ? (
         <div className="text-center py-25">
-          <p className="text-[#2B241F]/60">
+          <p className="text-[#2B241F]/70">
             V galerii zatím nejsou žádné fotografie.
           </p>
         </div>

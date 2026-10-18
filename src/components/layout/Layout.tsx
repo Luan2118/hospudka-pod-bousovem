@@ -2,12 +2,57 @@ import { Outlet } from "react-router";
 import Navbar from "../navbar/Navbar";
 import Contact from "../Contact/Contact";
 import { useLocation } from "react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../Footer/Footer";
+import { client } from "../../sanity/sanityClient";
+import type { ContactContext, ContactData } from "../../types/contact";
+
+const CONTACT_QUERY = `
+  *[_type == "contact"][0] {
+    phoneNumber,
+    email,
+    facebookUrl
+  }
+`;
 
 function Layout() {
 
   const { hash, pathname } = useLocation();
+
+  const [contactState, setContactState] = useState<ContactContext>({
+    contact: null,
+    loading: true,
+    error: null,
+  });
+
+  useEffect(() => {
+    let active = true;
+
+    async function getContact() {
+      try {
+        const contact = await client.fetch<ContactData | null>(CONTACT_QUERY);
+
+        if (active) {
+          setContactState({ contact, loading: false, error: null });
+        }
+      } catch (error) {
+        if (active) {
+          setContactState({
+            contact: null,
+            loading: false,
+            error: "Kontaktní údaje se nepodařilo načíst.",
+          });
+          console.error(error);
+        }
+      }
+    }
+
+    getContact();
+
+    return () => {
+      active = false;
+    };
+  }, []);
 
   useEffect(() => {
     if (!hash) return;
@@ -22,12 +67,12 @@ function Layout() {
   return (
     <div className="h-screen relative ">
 
-      <Navbar />
+      <Navbar facebookUrl={contactState.contact?.facebookUrl?.trim()} />
 
       <main>
-        <Outlet />
+        <Outlet context={contactState} />
       </main>
-      <Contact />
+      <Contact {...contactState} />
       <Footer />
 
     </div>

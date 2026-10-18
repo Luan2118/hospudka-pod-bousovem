@@ -1,6 +1,8 @@
 import dateIcon from "../../../../assets/icons/date.webp"
 import { motion } from "motion/react"
 import { useEffect, useState } from "react"
+import { useOutletContext } from "react-router";
+import type { ContactContext } from "../../../../types/contact";
 import { client } from "../../../../sanity/sanityClient"
 import facebookY from "../../../../assets/icons/facebook-y.webp";
 import facebookB from "../../../../assets/icons/facebook-b.webp";
@@ -17,6 +19,9 @@ type Event = {
 }
 
 function Event() {
+
+  const { contact } = useOutletContext<ContactContext>();
+  const facebookUrl = contact?.facebookUrl?.trim();
 
   const [event, setEvent] = useState<Event | null>(null);
   const [loading, setLoading] = useState(true);
@@ -107,8 +112,8 @@ function Event() {
 
                   <div className="text-[#FFFDF8]/70 text-center text-sm">O dalších akcích a novinkách vás budeme informovat na našem Facebooku</div>
 
-                  <motion.a
-                    href="https://www.facebook.com/profile.php?id=100093410382349"
+                  {facebookUrl && <motion.a
+                    href={facebookUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     initial="initial"
@@ -167,7 +172,7 @@ function Event() {
                         />
                       </span>
                     </motion.span>
-                  </motion.a>
+                  </motion.a>}
 
                 </div>
                 : <>

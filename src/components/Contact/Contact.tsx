@@ -14,6 +14,7 @@ import paymentB from "../../assets/images/payment-brown.webp"
 import { useLocation } from "react-router";
 import { useEffect, useState } from "react";
 import { client } from "../../sanity/sanityClient";
+import type { ContactContext } from "../../types/contact";
 
 
 
@@ -24,21 +25,6 @@ type OpeningDay = {
 };
 
 type OpeningHoursData = Record<string, OpeningDay | null>;
-
-type ContactData = {
-  phoneNumber?: string | null;
-  email?: string | null;
-  facebookUrl?: string | null;
-};
-
-
-const CONTACT_QUERY = `
-  *[_type == "contact"][0] {
-    phoneNumber,
-    email,
-    facebookUrl
-  }
-`;
 
 const OPENING_HOURS_QUERY = `
   *[_type == "openingHours"][0] {
@@ -53,7 +39,7 @@ const OPENING_HOURS_QUERY = `
 `;
 
 
-function Contact() {
+function Contact({ contact, loading: contactLoading, error: contactError }: ContactContext) {
 
   const { pathname } = useLocation();
 
@@ -61,11 +47,6 @@ function Contact() {
   const [openingHours, setOpeningHours] = useState<OpeningHoursData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
-  // contact
-  const [contact, setContact] = useState<ContactData | null>(null);
-  const [contactLoading, setContactLoading] = useState(true);
-  const [contactError, setContactError] = useState<string | null>(null);
 
   // fetch opening hours
   useEffect(() => {
@@ -99,31 +80,6 @@ function Contact() {
     { key: "sunday", name: "Neděle" },
   ]
 
-
-  //fetch contact
-
-  useEffect(() => {
-    async function getContact() {
-      try {
-        setContactLoading(true);
-        setContactError(null);
-
-        const data = await client.fetch<ContactData | null>(CONTACT_QUERY);
-
-        setContact(data);
-      } catch (error) {
-        setContactError(
-          "Kontaktní údaje se nepodařilo načíst."
-        );
-
-        console.error(error);
-      } finally {
-        setContactLoading(false);
-      }
-    }
-
-    getContact();
-  }, []);
 
   const phoneNumber = contact?.phoneNumber?.trim();
   const contactEmail = contact?.email?.trim();

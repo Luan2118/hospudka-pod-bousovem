@@ -6,29 +6,12 @@ import closeMenu from "../../assets/icons/close-menu.webp"
 import { useState, useEffect } from "react";
 import facebook from "../../assets/icons/facebook-w.webp"
 import { AnimatePresence, motion } from "motion/react";
-import { client } from "../../sanity/sanityClient";
 
+type NavbarProps = {
+  facebookUrl?: string | null;
+};
 
-function Navbar() {
-
-  const FACEBOOK_QUERY = `*[_type == "contact"][0].facebookUrl`;
-
-  const [facebookUrl, setFacebookUrl] = useState<string | null>(null);
-
-  useEffect(() => {
-    async function getFacebookUrl() {
-      try {
-        setFacebookUrl(null)
-        const url = await client.fetch<string | null>(FACEBOOK_QUERY);
-        setFacebookUrl(url);
-      } catch (error) {
-        setFacebookUrl(null)
-        console.error("Failed to load Facebook URL:", error);
-      }
-    }
-
-    getFacebookUrl();
-  }, []);
+function Navbar({ facebookUrl }: NavbarProps) {
 
   const { pathname } = useLocation();
 

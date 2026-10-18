@@ -75,23 +75,17 @@ function Galerie() {
   const dialogImage = imgIndex !== null ? images[imgIndex] : undefined;
 
   function showNextImg() {
-
-    if (imgIndex === images.length - 1) {
-      setImgIndex(-1)
-    }
-
-    setImgIndex((prev => {
-      if (prev === null) return null;
-      return prev + 1
-    }))
-
+    setImgIndex(prev => {
+      if (prev === null || images.length === 0) return prev;
+      return (prev + 1) % images.length;
+    });
   }
 
   function showPrevImg() {
-    return imgIndex === 0 ? 0 : setImgIndex((prev => {
-      if (prev === null) return null;
-      return prev - 1
-    }))
+    setImgIndex(prev => {
+      if (prev === null || images.length === 0) return prev;
+      return (prev - 1 + images.length) % images.length;
+    });
   }
 
   return (
@@ -163,27 +157,33 @@ function Galerie() {
         </motion.div>
       )}
 
-      <dialog onClose={() => setImgIndex(null)} ref={dialogRef} className="relative w-full h-full bg-transparent overflow-hidden open:flex flex-col items-center pt-20 z-80" >
+      <dialog
+        onClose={() => setImgIndex(null)}
+        ref={dialogRef}
+        aria-label="Galerie fotografií"
+        className="fixed inset-0 m-0 h-dvh max-h-none w-dvw max-w-none overflow-hidden border-0 bg-transparent px-2 py-20 open:flex items-center justify-center backdrop:bg-black/80 sm:px-20"
+      >
 
-        <button onClick={closeDialog} className="w-[45px]  self-end fixed cursor-pointer" aria-label="Zavřít fotografii">
-          <img src={Xbutton} alt="Zavřít fotografii" />
-        </button>
-
-        <button className="w-[45px] fixed self-start bottom-[50%] rotate-180 cursor-pointer" onClick={showPrevImg}>
-          <img src={imageArrow} alt="Zobrait předchozí fotku" />
+        <button type="button" onClick={closeDialog} className="absolute right-3 top-[max(0.75rem,env(safe-area-inset-top))] z-10 h-12 w-12 cursor-pointer" aria-label="Zavřít fotografii">
+          <img src={Xbutton} alt="" className="h-full w-full object-contain" />
         </button>
 
         {dialogImage && (
-          <img src={dialogImage.asset.url} alt={dialogImage.alt ?? ""} className=" max-h-[80vh] max-w-[90vw]  w-auto h-auto fixed" />
-        )}
+          <div className="relative flex max-w-full items-center justify-center">
+            <button type="button" className="absolute left-1 top-1/2 z-10 h-12 w-12 -translate-y-1/2 cursor-pointer rounded-full bg-black/50 sm:fixed sm:left-3 sm:bg-transparent" onClick={showPrevImg} aria-label="Předchozí fotografie">
+              <img src={imageArrow} alt="" className="h-full w-full rotate-180 object-contain" />
+            </button>
 
-        <button className="w-[45px] fixed self-end bottom-[50%] cursor-pointer" onClick={showNextImg} aria-label="Následujicí fotka">
-          <img src={imageArrow} alt="Zobrait následujicí fotku" />
-        </button>
+            <img src={dialogImage.asset.url} alt={dialogImage.alt ?? ""} className="block h-auto max-h-[calc(100dvh-10rem)] w-auto max-w-full object-contain" />
+
+            <button type="button" className="absolute right-1 top-1/2 z-10 h-12 w-12 -translate-y-1/2 cursor-pointer rounded-full bg-black/50 sm:fixed sm:right-3 sm:bg-transparent" onClick={showNextImg} aria-label="Následující fotografie">
+              <img src={imageArrow} alt="" className="h-full w-full object-contain" />
+            </button>
+          </div>
+        )}
 
       </dialog>
 
-      {imgIndex !== null && <div className="bg-black/80 fixed inset-0"></div>}
     </div>
   )
 }

@@ -44,7 +44,6 @@ function Event() {
         setLoading(true)
         setError(null)
         const data: Event = await client.fetch(POST_QUERY);
-
         setEvent(data)
       } catch (error) {
         setError('Informace o aktuálních akcích a soutěžích jsou momentálně nedostupné. Zkuste to prosím později.')
@@ -67,7 +66,7 @@ function Event() {
       rel="noopener noreferrer"
       initial="initial"
       whileHover="hover"
-      className="group relative overflow-hidden border border-[#D9A441] rounded-xl w-fit self-center py-2 px-4 mt-3 cursor-pointer"
+      className={`group relative overflow-hidden border border-[#D9A441] rounded-xl w-fit ${event && !error ? 'self-start' : 'self-center'} py-2 px-4 mt-3 cursor-pointer`}
     >
       <motion.span
         aria-hidden="true"
@@ -134,7 +133,7 @@ function Event() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="flex items-center gap-3 text-sm xl:text-base uppercase tracking-[0.12em] text-[#D9A441] px-2">
+            className="flex items-center gap-3 text-sm xl:text-base uppercase tracking-[0.12em] text-[#FFFDF8] px-2">
             Akce a soutěže u nás
           </motion.h2>
         </header>
@@ -188,11 +187,11 @@ function Event() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
-                      className="flex w-fit max-w-full items-center gap-2 sm:gap-3   px-3 ">
+                      className="flex w-fit max-w-full items-center gap-2 sm:gap-3">
                       <img src={dateIcon} alt="" className="w-[28px] h-[28px] shrink-0" />
                       <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm sm:text-base text-[#D9A441] ">
                         <span>{eventDate}</span>
-                        <span aria-hidden="true" className="text-[#D9A441]/50">•</span>
+                        <span aria-hidden="true" className="text-[#D9A441]/80">•</span>
                         <span>od {event.time}</span>
                       </div>
                     </motion.div>

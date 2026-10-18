@@ -60,6 +60,70 @@ function Event() {
 
   const eventDate = new Date(`${event?.date}T00:00:00`).toLocaleDateString("cs-CZ")
 
+  const facebookLink = facebookUrl ? (
+    <motion.a
+      href={facebookUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial="initial"
+      whileHover="hover"
+      className="group relative overflow-hidden border border-[#D9A441] rounded-xl w-fit self-center py-2 px-4 mt-3 cursor-pointer"
+    >
+      <motion.span
+        aria-hidden="true"
+        variants={{
+          initial: { y: "-100%" },
+          hover: { y: "0%" },
+        }}
+        transition={{
+          duration: 0.35,
+          ease: "easeInOut",
+        }}
+        className="absolute inset-0 bg-[#D9A441]"
+      />
+
+      <motion.span
+        variants={{
+          initial: { color: "#D9A441" },
+          hover: { color: "#3E2818" },
+        }}
+        transition={{ duration: 0.25 }}
+        className="relative z-10 flex items-center gap-2 text-xs sm:text-sm"
+      >
+
+        <span className="relative h-5 w-5">
+          <img
+            src={facebookY}
+            alt=""
+            className="absolute inset-0 w-5 transition-opacity duration-300 group-hover:opacity-0"
+          />
+
+          <img
+            src={facebookB}
+            alt=""
+            className="absolute inset-0 w-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          />
+        </span>
+
+        Sledujte nás na Facebooku
+
+        <span className="relative w-5 h-5">
+          <img
+            src={redirectY}
+            alt=""
+            className="absolute inset-0  transition-opacity duration-300 group-hover:opacity-0"
+          />
+
+          <img
+            src={redirectB}
+            alt=""
+            className="absolute inset-0  opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          />
+        </span>
+      </motion.span>
+    </motion.a>
+  ) : null;
+
   return (
     <section id="akce" className="bg-[#38271F] font-[Bree_serif] py-10 flex flex-col items-center">
 
@@ -102,6 +166,8 @@ function Event() {
                   <p className="max-w-md text-sm leading-relaxed text-[#FFFDF8]/70">
                     {error}
                   </p>
+
+                  {facebookLink}
                 </div>
               </> :
 
@@ -112,67 +178,7 @@ function Event() {
 
                   <div className="text-[#FFFDF8]/70 text-center text-sm">O dalších akcích a novinkách vás budeme informovat na našem Facebooku</div>
 
-                  {facebookUrl && <motion.a
-                    href={facebookUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial="initial"
-                    whileHover="hover"
-                    className="group relative overflow-hidden border border-[#D9A441] rounded-xl w-fit self-center py-2 px-4 mt-3 cursor-pointer"
-                  >
-                    <motion.span
-                      aria-hidden="true"
-                      variants={{
-                        initial: { y: "-100%" },
-                        hover: { y: "0%" },
-                      }}
-                      transition={{
-                        duration: 0.35,
-                        ease: "easeInOut",
-                      }}
-                      className="absolute inset-0 bg-[#D9A441]"
-                    />
-
-                    <motion.span
-                      variants={{
-                        initial: { color: "#D9A441" },
-                        hover: { color: "#3E2818" },
-                      }}
-                      transition={{ duration: 0.25 }}
-                      className="relative z-10 flex items-center gap-2 text-xs sm:text-sm"
-                    >
-
-                      <span className="relative h-5 w-5">
-                        <img
-                          src={facebookY}
-                          alt=""
-                          className="absolute inset-0 w-5 transition-opacity duration-300 group-hover:opacity-0"
-                        />
-
-                        <img
-                          src={facebookB}
-                          alt=""
-                          className="absolute inset-0 w-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                        />
-                      </span>
-
-                      Sledujte nás na Facebooku
-
-                      <span className="relative w-5 h-5">
-                        <img
-                          src={redirectY}
-                          alt=""
-                          className="absolute inset-0  transition-opacity duration-300 group-hover:opacity-0"
-                        />
-
-                        <img
-                          src={redirectB}
-                          alt=""
-                          className="absolute inset-0  opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                        />
-                      </span>
-                    </motion.span>
-                  </motion.a>}
+                  {facebookLink}
 
                 </div>
                 : <>
@@ -210,6 +216,8 @@ function Event() {
                       className="text-sm lg:text-base max-w-[500px] text-[#FFFDF8]/90 leading-relaxed">
                       {event?.description}
                     </motion.p>
+
+                    {facebookLink}
 
                   </div>
 

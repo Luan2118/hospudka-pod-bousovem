@@ -5,8 +5,8 @@ import { motion } from "motion/react";
 
 function Hero() {
   return (
-    <section id="hero" className="flex flex-col min-h-svh ">
-      <img src={hospudkaFrontView} alt="Hospůdka pod Boušovem" className="h-screen w-screen object-cover  absolute inset-0" />
+    <section id="hero" className="relative flex flex-col min-h-svh">
+      <img src={hospudkaFrontView} alt="Hospůdka pod Boušovem" className="absolute inset-0 h-full w-full object-cover" />
 
 
       <div className="absolute inset-0 bg-gradient-to-r from-[#171512]/50  to-[#171512]/30" />

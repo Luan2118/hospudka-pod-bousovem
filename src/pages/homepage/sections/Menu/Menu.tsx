@@ -18,7 +18,7 @@ export type MenuItem = {
   // Drinks
   volume?: number;
   secondaryPrice?: number;
-  secondaryVolume?: number;
+  secondaryVolume?: string | number;
   secondaryLabel?: string;
 };
 

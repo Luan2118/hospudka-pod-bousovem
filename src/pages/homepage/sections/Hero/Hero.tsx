@@ -1,5 +1,5 @@
 
-import hospudkaFrontView from "../../../../assets/images/front-view-1.webp"
+import hospudkaFrontView from "../../../../assets/images/hospoda.webp"
 import whiteArrow from "../../../../assets/icons/whiteArrow.png"
 import { motion } from "motion/react";
 

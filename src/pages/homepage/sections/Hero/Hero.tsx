@@ -11,7 +11,7 @@ function Hero() {
 
       <div className="absolute inset-0 bg-gradient-to-r from-[#171512]/50  to-[#171512]/30" />
 
-      <div className="z-10 absolute font-[Bree_serif] top-1/2 -translate-y-1/2 px-6  xxs:px-[clamp(1rem,12vw,12.5rem)] flex flex-col  ">
+      <div className="z-10 absolute font-[Bree_serif] top-1/2 -translate-y-1/2 mt-12 px-6  xxs:px-[clamp(1rem,12vw,12.5rem)] flex flex-col  ">
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}

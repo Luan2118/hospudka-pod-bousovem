@@ -165,7 +165,7 @@ function Contact({ contact, loading: contactLoading, error: contactError }: Cont
           </>
         )}
 
-        <hr className={`my-4 max-w-[400px] ${pathname !== '/' ? 'text-[#FFFDF8]/20' : 'text-[#2B241F]/20'}`} />
+        <hr className={`my-4 max-w-[350px] ${pathname !== '/' ? 'text-[#FFFDF8]/20' : 'text-[#2B241F]/20'}`} />
 
         <div className="flex gap-2 pl-2 text-sm ">
           <span>Provotovatel:</span>

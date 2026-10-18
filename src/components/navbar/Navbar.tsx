@@ -108,7 +108,7 @@ function Navbar({ facebookUrl }: NavbarProps) {
 
                   </Link>
                   <button className="cursor-pointer" onClick={handleMenu} >
-                    <img src={closeMenu} alt="" className="w-[30px] h-[30px] rounded-[50%] object-cover" />
+                    <img src={closeMenu} alt="" className="w-[40px] h-[40px] rounded-[50%] object-cover" />
                   </button>
                 </div>
 

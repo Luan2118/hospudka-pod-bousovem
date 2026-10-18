@@ -124,7 +124,7 @@ function Event() {
   ) : null;
 
   return (
-    <section id="akce" className="bg-[#38271F] font-[Bree_serif] py-10 flex flex-col items-center">
+    <section id="akce" className="bg-[#38271F] font-[Bree_serif] py-10 flex flex-col lg:items-center">
 
       <div className="px-5">
         <header className="flex flex-col gap-4 mb-4">
@@ -139,7 +139,7 @@ function Event() {
         </header>
 
 
-        <div className="flex flex-col px-5 xxs:px-10 xs:px-15 sm:px-20 lg:flex-row lg:justify-center gap-10 border w-fit border-l-0 border-r-0 py-5 border-[#D9A441]/25">
+        <div className="flex flex-col px-5 xxs:px-10 lg:px-20 md:flex-row lg:justify-center gap-10 border lg:w-fit border-l-0 border-r-0 py-5 border-[#D9A441]/25">
 
           {loading ?
             <>
@@ -181,7 +181,7 @@ function Event() {
 
                 </div>
                 : <>
-                  <div className="flex flex-col gap-4 my-auto mx-auto lg:mx-0">
+                  <div className="order-2 md:order-1 flex flex-col gap-4 my-auto mx-auto lg:mx-0">
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -226,10 +226,11 @@ function Event() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                    className="order-1 md:order-2"
                   >
                     {!event.imageUrl ?
                       null
-                      : <img src={event.imageUrl} alt={event.imageAlt} className=" object-contain border border-[#D9A441]/70 max-h-[300px] mx-auto lg:mx-0" />
+                      : <img src={event.imageUrl} alt={event.imageAlt} className=" border border-[#D9A441]/70 max-h-[350px] w-auto object-contain  mx-auto lg:mx-0" />
                     }
                   </motion.div>
                 </>

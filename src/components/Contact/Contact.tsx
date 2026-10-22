@@ -225,7 +225,7 @@ function Contact({ contact, loading: contactLoading, error: contactError }: Cont
 
 
       <div className="flex flex-col gap-2 w-full md:col-span-2 xl:col-span-1">
-        <img src={pathname !== '/' ? paymentB : payment} alt="" className="max-w-[450px] 3xl:max-w-[500px] max-h-[200px]" />
+        <img src={pathname !== '/' ? paymentB : payment} alt="Možnosti bezkontaktní platby v Hospůdce pod Boušovem – Visa, Mastercard, Maestro, Apple Pay, Google Pay a V Pay" className="max-w-[450px] 3xl:max-w-[500px] max-h-[200px]" />
 
         <div>
           <p className="text-xl mb-4">Mapa</p>

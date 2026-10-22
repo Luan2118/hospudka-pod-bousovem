@@ -4,9 +4,10 @@ type StorySection = {
   title: string
   description: string
   image: string
+  imageAlt: string
 }
 
-function StorySection({ title, description, image }: StorySection) {
+function StorySection({ title, description, image, imageAlt }: StorySection) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-20 mt-5">
 
@@ -18,7 +19,7 @@ function StorySection({ title, description, image }: StorySection) {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
             src={image}
-            alt=""
+            alt={imageAlt}
             className="w-[90%] h-auto place-self-center rounded-md order-2 lg:order-1" />
           <div className="flex flex-col gap-6 my-auto xl:px-12 order-1 lg:order-2">
             <motion.p
@@ -66,7 +67,7 @@ function StorySection({ title, description, image }: StorySection) {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
             src={image}
-            alt=""
+            alt={imageAlt}
             className="w-[90%] h-auto place-self-center rounded-md" />
         </>
       }

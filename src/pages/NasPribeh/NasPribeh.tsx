@@ -3,10 +3,15 @@ import hospodaZacatek2 from "../../assets/images/hospoda-zacatek-2.webp";
 import hospodaZacatek3 from "../../assets/images/hospoda-zacatek-3.webp";
 import StorySection from "./components/StorySection";
 import { motion } from "motion/react";
+import Seo from "../../components/Seo/Seo";
 
 function NasPribeh() {
   return (
     <div id="nas-pribeh" className="flex flex-col font-[Bree_serif] text-[#2B241F] bg-[#F5F0E6] pb-15  pt-[100px] px-5 sm:px-10 gap-12 md:gap-16 xl:px-30 2xl:px-60">
+      <Seo
+        title="Náš příběh | Hospůdka pod Boušovem ve Všekarech"
+        description="Poznejte příběh Hospůdky pod Boušovem ve Všekarech. Od rodinného domu přes rekonstrukci až po otevření hospůdky a dnešní venkovní posezení."
+      />
 
       <div className="flex flex-col justify-center items-center gap-4">
         <div className="overflow-hidden">

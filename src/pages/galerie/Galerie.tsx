@@ -3,6 +3,7 @@ import imageArrow from "../../assets/icons/imageArrow.webp"
 import { useRef, useState, useEffect } from "react"
 import { motion } from "motion/react"
 import { client } from "../../sanity/sanityClient"
+import Seo from "../../components/Seo/Seo"
 
 type GalleryImage = {
   _key: string;
@@ -90,6 +91,10 @@ function Galerie() {
 
   return (
     <div className={"px-5 md:px-20 xl:px-40 2xl:px-80 py-30 flex flex-col gap-10  bg-[#F5F0E6]"}>
+      <Seo
+        title="Fotogalerie | Hospůdka pod Boušovem ve Všekarech"
+        description="Prohlédněte si fotografie Hospůdky pod Boušovem ve Všekarech. Podívejte se na naše jídlo, pivo, venkovní posezení a společné akce."
+      />
       <div className="overflow-hidden">
         <motion.h1
           initial={{ opacity: 0, y: '100%' }}

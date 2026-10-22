@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useLocation } from "react-router";
 
 type SeoProps = {
   title: string;
@@ -6,6 +7,8 @@ type SeoProps = {
 };
 
 function Seo({ title, description }: SeoProps) {
+  const { pathname } = useLocation();
+
   useEffect(() => {
     document.title = title;
 
@@ -18,7 +21,18 @@ function Seo({ title, description }: SeoProps) {
     }
 
     metaDescription.content = description;
-  }, [title, description]);
+
+    let canonicalLink = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+
+    if (!canonicalLink) {
+      canonicalLink = document.createElement("link");
+      canonicalLink.rel = "canonical";
+      document.head.appendChild(canonicalLink);
+    }
+
+    const canonicalPath = pathname.replace(/\/+$/, "") || "/";
+    canonicalLink.href = `https://hospudkapodbousovem.cz${canonicalPath}`;
+  }, [title, description, pathname]);
 
   return null;
 }

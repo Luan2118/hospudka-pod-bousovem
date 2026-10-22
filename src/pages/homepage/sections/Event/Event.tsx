@@ -201,7 +201,7 @@ function Event() {
                         initial={{ opacity: 0, y: '100%' }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+                        transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
                         className="text-3xl lg:text-4xl  text-[#FFFDF8]">
                         {event?.title}
                       </motion.p>
@@ -211,7 +211,7 @@ function Event() {
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
+                      transition={{ duration: 0.3, delay: 0.3, ease: "easeOut" }}
                       className="text-sm lg:text-base max-w-[500px] text-[#FFFDF8]/90 leading-relaxed">
                       {event?.description}
                     </motion.p>

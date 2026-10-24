@@ -4,9 +4,10 @@ import { useLocation } from "react-router";
 type SeoProps = {
   title: string;
   description: string;
+  noIndex?: boolean;
 };
 
-function Seo({ title, description }: SeoProps) {
+function Seo({ title, description, noIndex = false }: SeoProps) {
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -32,7 +33,16 @@ function Seo({ title, description }: SeoProps) {
 
     const canonicalPath = pathname.replace(/\/+$/, "") || "/";
     canonicalLink.href = `https://hospudkapodbousovem.cz${canonicalPath}`;
-  }, [title, description, pathname]);
+
+    if (noIndex) {
+      const robots = document.createElement("meta");
+      robots.name = "robots";
+      robots.content = "noindex";
+      document.head.appendChild(robots);
+
+      return () => robots.remove();
+    }
+  }, [title, description, pathname, noIndex]);
 
   return null;
 }

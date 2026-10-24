@@ -59,8 +59,8 @@ function Navbar({ facebookUrl }: NavbarProps) {
               </Link>
 
 
-              <button className="px-2 xxs:px-0 cursor-pointer lg:hidden" onClick={handleMenu} aria-label="Menu navigace">
-                <img src={blackMenu} className="w-[40px] h-[40px] rounded-[50%] object-cover" />
+              <button className="px-2 xxs:px-0 cursor-pointer lg:hidden" onClick={handleMenu} aria-label="Menu navigace" aria-expanded={menuClicked}>
+                <img src={blackMenu} className="w-[40px] h-[40px] rounded-[50%] object-cover" alt=""/>
               </button>
             </motion.div>
 
@@ -107,7 +107,7 @@ function Navbar({ facebookUrl }: NavbarProps) {
                     </div>
 
                   </Link>
-                  <button className="cursor-pointer" onClick={handleMenu} aria-label="Zavřít menu">
+                  <button className="cursor-pointer" onClick={handleMenu} aria-label="Zavřít menu" aria-expanded={menuClicked}>
                     <img src={closeMenu} alt="" className="w-[40px] h-[40px] rounded-[50%] object-cover" />
                   </button>
                 </div>

@@ -62,7 +62,7 @@ function Hero() {
         animate={{y: [0, 6, 0]}}
         transition={{duration: 1, repeat: Infinity, ease:"easeInOut"}}
       className="absolute bottom-8 w-full flex  justify-center">
-        <a className="p-2 rounded-[50%] bg-white/10 backdrop-blur-md" href="#menu">
+        <a className="p-2 rounded-[50%] bg-white/10 backdrop-blur-md" href="#menu" aria-label="Přejít na menu">
           <img src={whiteArrow} alt="" className="w-[25px] h-[25px]" />
         </a>
       </motion.div>

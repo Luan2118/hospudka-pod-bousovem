@@ -230,7 +230,7 @@ function Event() {
                   >
                     {!event.imageUrl ?
                       null
-                      : <img src={event.imageUrl} alt={event.imageAlt} className=" border border-[#D9A441]/70 max-h-[350px] w-auto object-contain  mx-auto lg:mx-0" />
+                      : <img src={event.imageUrl} alt={event.imageAlt} loading="lazy" className=" border border-[#D9A441]/70 max-h-[350px] w-auto object-contain  mx-auto lg:mx-0" />
                     }
                   </motion.div>
                 </>

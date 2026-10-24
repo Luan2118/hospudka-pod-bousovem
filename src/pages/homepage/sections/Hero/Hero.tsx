@@ -49,12 +49,16 @@ function Hero() {
         </h1>
 
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5,delay: 0.4 , ease: "easeOut" }}
-          className="text-[#FFFDF8]/70 text-[clamp(0.8rem,2vw,1.1rem)] mt-5 max-w-[500px]">
-          Poctivé pivo, příjemné posezení a místo, kde se budete cítit jako doma</motion.p>
+        <p className="text-[#FFFDF8]/70 text-[clamp(0.8rem,2vw,1.1rem)] mt-5 max-w-[500px] overflow-hidden">
+          <motion.span
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.65, ease: "easeOut" }}
+            className="block"
+          >
+            Poctivé pivo, příjemné posezení a místo, kde se budete cítit jako doma
+          </motion.span>
+        </p>
       </div>
 
 

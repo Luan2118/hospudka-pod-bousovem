@@ -12,63 +12,15 @@ import OpeningHours from "./components/OpeningHours";
 import payment from "../../assets/images/payment.webp"
 import paymentB from "../../assets/images/payment-brown.webp"
 import { useLocation } from "react-router";
-import { useEffect, useState } from "react";
-import { client } from "../../sanity/sanityClient";
-import type { ContactContext } from "../../types/contact";
+import type { LayoutContext } from "../../types/contact";
 
 
 
-type OpeningDay = {
-  closed: boolean;
-  openingTime?: string;
-  closingTime?: string;
-};
-
-type OpeningHoursData = Record<string, OpeningDay | null>;
-
-const OPENING_HOURS_QUERY = `
-  *[_type == "openingHours"][0] {
-    monday,
-    tuesday,
-    wednesday,
-    thursday,
-    friday,
-    saturday,
-    sunday
-  }
-`;
-
-
-function Contact({ contact, loading: contactLoading, error: contactError }: ContactContext) {
+function Contact({ contact, loading: contactLoading, error: contactError, openingHoursState }: LayoutContext) {
 
   const { pathname } = useLocation();
 
-  // opening hours
-  const [openingHours, setOpeningHours] = useState<OpeningHoursData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  // fetch opening hours
-  useEffect(() => {
-    async function getOpeningHours() {
-      try {
-        setLoading(true);
-        setError(null);
-        const data = await client.fetch<OpeningHoursData | null>(
-          OPENING_HOURS_QUERY
-        );
-
-        setOpeningHours(data);
-      } catch (error) {
-        setError("Otevírací dobu se nepodařilo načíst.");
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    getOpeningHours();
-  }, []);
+  const { openingHours, loading, error } = openingHoursState;
 
   const days = [
     { key: "monday", name: "Pondělí" },
@@ -78,7 +30,7 @@ function Contact({ contact, loading: contactLoading, error: contactError }: Cont
     { key: "friday", name: "Pátek" },
     { key: "saturday", name: "Sobota" },
     { key: "sunday", name: "Neděle" },
-  ]
+  ] as const;
 
 
   const phoneNumber = contact?.phoneNumber?.trim();
@@ -209,8 +161,8 @@ function Contact({ contact, loading: contactLoading, error: contactError }: Cont
                 return (
                   <OpeningHours
                     key={key}
-                    openingHour={hours?.openingTime}
-                    closingHour={hours?.closingTime}
+                    openingHour={hours?.openingTime ?? undefined}
+                    closingHour={hours?.closingTime ?? undefined}
                     closed={hours?.closed ?? true}
                     pathname={pathname}
                   >

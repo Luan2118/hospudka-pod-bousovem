@@ -4,10 +4,13 @@ import { useEffect, useState } from "react"
 import { useOutletContext } from "react-router";
 import type { ContactContext } from "../../../../types/contact";
 import { client } from "../../../../sanity/sanityClient"
+import { createImageUrlBuilder } from "@sanity/image-url";
 import facebookY from "../../../../assets/icons/facebook-y.webp";
 import facebookB from "../../../../assets/icons/facebook-b.webp";
 import redirectY from "../../../../assets/icons/redirect-y.webp";
 import redirectB from "../../../../assets/icons/redirect-b.webp";
+
+const imageBuilder = createImageUrlBuilder(client);
 
 type Event = {
   title: string
@@ -230,7 +233,12 @@ function Event() {
                   >
                     {!event.imageUrl ?
                       null
-                      : <img src={event.imageUrl} alt={event.imageAlt} loading="lazy" className=" border border-[#D9A441]/70 max-h-[350px] w-auto object-contain  mx-auto lg:mx-0" />
+                      : <img
+                        src={imageBuilder.image(event.imageUrl).width(800).fit("max").auto("format").url()}
+                        alt={event.imageAlt}
+                        loading="lazy"
+                        className=" border border-[#D9A441]/70 max-h-[350px] w-auto object-contain  mx-auto lg:mx-0"
+                      />
                     }
                   </motion.div>
                 </>
